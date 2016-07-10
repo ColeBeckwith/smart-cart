@@ -10,6 +10,7 @@
     var vm = this;
 
     vm.meals = [];
+    vm.yourMeals = [];
     vm.classAnimation = '';
     vm.creationDate = 1466020001865;
     vm.showToastr = showToastr;
@@ -26,13 +27,7 @@
     }
 
     function addToCart(meal) {
-      if (vm.cart.indexOf(meal) === -1) {
-        vm.cart.push(meal);
-      } else {
-        vm.cart = vm.cart.splice(vm.cart.indexOf(meal), 1);
-      };
       meal.added = !meal.added;
-      console.log(vm.cart);
     }
 
     function showToastr() {

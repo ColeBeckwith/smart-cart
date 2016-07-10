@@ -20,8 +20,8 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 .thumbnail {
-  height: 150px;
   cursor: pointer;
+  height: 300px;
 
   img.pull-right {
     width: 50px;
@@ -29,9 +29,21 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   }
 }
 
-.thumbnail:hover {
-  background: lightgray;
+.plus-minus {
+  font-family: "Tahoma";
+  border-radius: 50px;
+  background: darkgreen;
+  padding: 1em;
+  color: white;
+  border: 0;
+
+  :hover {
+    background: lightgreen;
+  }
 }
+/*.thumbnail:hover {
+  background: lightgray;
+}*/
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

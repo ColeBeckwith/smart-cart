@@ -17,20 +17,37 @@
       extra-values="['Yeoman', 'Gulp', 'Angular', 'Dave']"></acme-malarkey>
     </p>-->
   </div>
-
+  <h1>Featured Meals</h1>
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="meal in main.meals | orderBy:'rank'">
-      <div class="thumbnail" ng-click="main.addToCart(meal)">
-        <button class="pull-right" ng-click=""></button>
-        <!--<img class="pull-right" ng-src="assets/images/{{ meal.logo }}" alt="{{ meal.name }}">-->
+      <div class="thumbnail">
         <div class="caption">
           <h3>{{ meal.name }}</h3>
           <p>{{ meal.description }}</p>
           <p>{{ meal.added }}</p>
-          <p><a ng-href="{{meal.url}}">{{ meal.url }}</a></p>
+          <button class="plus-minus" ng-click="meal.added = !meal.added">ADD TO MENU</button>
         </div>
       </div>
     </div>
   </div>
+  <h1>Your Meals</h1>
+  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-repeat="meal in main.yourMeals">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>{{ meal.name }}</h3>
+          <p>{{ meal.description }}</p>
+          <p>{{ meal.added }}</p>
+          <button class="plus-minus" ng-click="meal.added = !meal.added">ADD TO MENU</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <button class="plus-minus">CREATE ITEM</button>
+      </div>
+    </div>
+  </div>
+
 
 </div>
