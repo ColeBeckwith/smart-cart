@@ -29,7 +29,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   }
 }
 
-.plus-minus {
+.rounded-button {
   font-family: "Tahoma";
   border-radius: 50px;
   background: darkgreen;
@@ -37,8 +37,30 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   color: white;
   border: 0;
 
-  :hover {
+  &:hover {
     background: lightgreen;
+  }
+
+  &:focus {
+    outline: none;
+    background: lightgreen;
+  }
+}
+
+.rounded-button:focus {
+  outline: none;
+
+}
+
+.red-button {
+  background: red;
+
+  &:hover {
+    background: coral;
+  }
+
+  &:focus {
+    background: coral;
   }
 }
 /*.thumbnail:hover {

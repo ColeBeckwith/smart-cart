@@ -17,6 +17,11 @@
       extra-values="['Yeoman', 'Gulp', 'Angular', 'Dave']"></acme-malarkey>
     </p>-->
   </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="rounded-button" ng-click="main.getIngredients()">GET SHOPPING LIST</button>
+    </div>
+  </div>
   <h1>Featured Meals</h1>
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="meal in main.meals | orderBy:'rank'">
@@ -25,12 +30,17 @@
           <h3>{{ meal.name }}</h3>
           <p>{{ meal.description }}</p>
           <p>{{ meal.added }}</p>
-          <button class="plus-minus" ng-click="meal.added = !meal.added">ADD TO MENU</button>
+          <button class="rounded-button" ng-show="!meal.added" ng-click="meal.added = !meal.added">ADD TO MENU</button>
+          <button class="rounded-button red-button" ng-show="meal.added" ng-click="meal.added = !meal.added">REMOVE FROM
+            MENU</button>
         </div>
       </div>
     </div>
   </div>
-  <h1>Your Meals</h1>
+  <div class="row">
+    <h1>Your Meals</h1>
+    <button class="rounded-button">CREATE NEW MEAL</button>
+  </div>
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="meal in main.yourMeals">
       <div class="thumbnail">
@@ -38,13 +48,8 @@
           <h3>{{ meal.name }}</h3>
           <p>{{ meal.description }}</p>
           <p>{{ meal.added }}</p>
-          <button class="plus-minus" ng-click="meal.added = !meal.added">ADD TO MENU</button>
+          <button class="rounded-button" ng-click="meal.added = !meal.added">ADD TO MENU</button>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <button class="plus-minus">CREATE ITEM</button>
       </div>
     </div>
   </div>

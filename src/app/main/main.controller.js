@@ -10,12 +10,18 @@
     var vm = this;
 
     vm.meals = [];
-    vm.yourMeals = [];
+    vm.yourMeals = [
+      {
+        'name' : 'No Custom Meals Available',
+        'description' : 'Click above to add your own meals.'
+      }
+    ];
     vm.classAnimation = '';
     vm.creationDate = 1466020001865;
     vm.showToastr = showToastr;
-    vm.addToCart = addToCart;
+    vm.getIngredients = getIngredients;
     vm.cart = [];
+    vm.ingredients = [];
 
     activate();
 
@@ -26,8 +32,13 @@
       }, 4000);
     }
 
-    function addToCart(meal) {
-      meal.added = !meal.added;
+    function getIngredients() {
+      angular.forEach(vm.meals, function(meal) {
+        if (meal.added === true) {
+          vm.ingredients += meal.description;
+        }
+      });
+      console.log(vm.ingredients);
     }
 
     function showToastr() {
