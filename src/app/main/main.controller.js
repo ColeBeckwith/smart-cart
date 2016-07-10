@@ -22,7 +22,7 @@
     vm.getIngredients = getIngredients;
     vm.cart = [];
     vm.ingredients = [];
-    vm.shoppingList = [];
+    vm.shoppingList = '';
 
     activate();
 
@@ -35,6 +35,7 @@
 
     function getIngredients() {
       vm.ingredients = [];
+      vm.shoppingList = '';
       angular.forEach(vm.meals, function(meal) {
         if (meal.added === true) {
           vm.ingredients.push(meal.description.split(', '));
@@ -47,7 +48,7 @@
       // A way to avoid the whole thing might be to add the ingredients upon adding the menu item, but then you have to
       // remove the ingredients if the item is removed which seems to be the more complex route.
       // Let me know what you might do.
-      console.log(vm.shoppingList);
+      console.log(vm.shoppingList.slice(0, vm.shoppingList.length-2) + '.');
     }
 
     function showToastr() {

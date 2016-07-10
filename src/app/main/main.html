@@ -29,7 +29,6 @@
         <div class="caption">
           <h3>{{ meal.name }}</h3>
           <p>{{ meal.description }}</p>
-          <p>{{ meal.added }}</p>
           <button class="rounded-button" ng-show="!meal.added" ng-click="meal.added = !meal.added">ADD TO MENU</button>
           <button class="rounded-button red-button" ng-show="meal.added" ng-click="meal.added = !meal.added">REMOVE FROM
             MENU</button>
