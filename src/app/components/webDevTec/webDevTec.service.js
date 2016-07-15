@@ -7,49 +7,52 @@
 
   /** @ngInject */
   function webDevTec() {
-    var data = [
+    var mealList = [
       {
         'name': 'Chicken Alfredo',
-        'description': 'Chicken, Alfredo Sauce, Noodles'
+        'ingredients': 'Chicken, Alfredo Sauce, Noodles',
+        'calories': 3000
       },
       {
         'name': 'Smoked Salmon',
-        'description': 'Salmon, Capers, Asparagus'
+        "ingredients": 'Salmon, Capers, Asparagus',
+        'calories': 1000
       },
       {
         'name': 'Vegetable Pot Pie',
-        'description': 'Carrots, Brocolli, Bread, Cream of Mushroom Soup'
+        "ingredients": 'Carrots, Brocolli, Bread, Cream of Mushroom Soup',
+        'calories': 2000
       },
       {
         'name': 'Grilled Shrimp Tacos',
-        'description': 'Shrimp, Tortillas, Salsa, Avocado, Lettuce'
+        "ingredients": 'Shrimp, Tortillas, Salsa, Avocado, Lettuce'
       },
       {
         'name': 'Gyros',
-        'description': 'Lamb Meat, Pitas'
+        "ingredients": 'Lamb Meat, Pitas'
       },
       {
         'name': 'Braised Lamb Shank',
-        'description': 'Lamb Meat, Marinade, Butter'
+        "ingredients": 'Lamb Meat, Marinade, Butter'
       },
       {
         'name': 'Deep Dish Pizza',
-        'description': 'Tomato Sauce, Cheese, Sausage'
+        "ingredients": 'Tomato Sauce, Cheese, Sausage'
       },
       {
         'name': 'Chicken Masala',
-        'description': 'Chicken, Masala'
+        "ingredients": 'Chicken, Masala'
       },
       {
         'name': 'Kale Salad',
-        'description': 'Kale, Apples, Pine Nuts'
+        "ingredients": 'Kale, Apples, Pine Nuts'
       }
     ];
 
     this.getTec = getTec;
 
     function getTec() {
-      return data;
+      return mealList;
     }
   }
 

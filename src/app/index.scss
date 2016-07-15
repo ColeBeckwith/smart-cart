@@ -20,8 +20,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 .thumbnail {
-  cursor: pointer;
-  height: 300px;
+  height: 200px;
 
   img.pull-right {
     width: 50px;
@@ -63,9 +62,34 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
     background: coral;
   }
 }
-/*.thumbnail:hover {
-  background: lightgray;
-}*/
+
+.pin {
+  position: absolute;
+  right: 2px;
+  top: -5px;
+  height: 7em;
+  width: 7em;
+  border-radius: 50%;
+  color: white;
+  font-size: .7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Arial";
+}
+
+.red-pin {
+  background: red;
+}
+
+.green-pin {
+  background: green;
+}
+
+.orange-pin {
+  background: orange;
+}
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
