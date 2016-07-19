@@ -19,30 +19,46 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   padding: 0.2em 0;
 }
 
-.thumbnail {
-  height: 200px;
+.image-container {
+  display: flex;
+  justify-content: center;
+}
 
-  img.pull-right {
-    width: 50px;
-    margin: 15px;
+.thumbnail {
+  height: 380px;
+  width: 95%;
+
+  img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 50%;
   }
+}
+
+.right-main {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  border-radius: 0;
 }
 
 .rounded-button {
   font-family: "Tahoma";
   border-radius: 50px;
-  background: darkgreen;
+  background: #2B803E;
   padding: 1em;
   color: white;
   border: 0;
 
   &:hover {
-    background: lightgreen;
+    background: #77B986;
   }
 
   &:focus {
     outline: none;
-    background: lightgreen;
+    background: #77B986;
   }
 }
 
@@ -52,14 +68,14 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 .red-button {
-  background: red;
+  background: #AA4439;
 
   &:hover {
-    background: coral;
+    background: #F5A69E;
   }
 
   &:focus {
-    background: coral;
+    background: #F5A69E;
   }
 }
 
@@ -80,15 +96,15 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 .red-pin {
-  background: red;
+  background: #AA4439;
 }
 
 .green-pin {
-  background: green;
+  background: #2B803E;
 }
 
 .orange-pin {
-  background: orange;
+  background: #AA7039;
 }
 
 /**

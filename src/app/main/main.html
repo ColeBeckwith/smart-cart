@@ -1,59 +1,76 @@
 <div class="container">
-
-  <div>
-    <acme-navbar></acme-navbar>
-  </div>
-
-  <div class="jumbotron text-center">
-    <h1>SmartCart</h1>
-    <p class="lead">
-      Save Time. Waste Less. Eat Better.
-    </p>
-  </div>
-  <div class="row text-center">
-      <button class="rounded-button" ng-click="main.getIngredients()">GET SHOPPING LIST</button>
-  </div>
-  <br>
-  <div class="row well text-center" ng-show="main.getIngredientsRun" ng-bind="main.shoppingList.slice(0, vm.shoppingList.length-2) + '.'"></div>
-  <h1>Featured Meals</h1>
   <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="meal in main.meals | orderBy:'rank'">
-      <div class="thumbnail">
-        <div class="caption">
-          <div class="pin" ng-class="{'red-pin': (meal.calories >= 2001), 'orange-pin': (meal.calories >= 1100 && meal.calories < 2001), 'green-pin': (meal.calories < 1100)}" ng-show="meal.calories">{{ meal.calories }}
-            Calories Per Serving</div>
-          <h3>{{ meal.name }}</h3>
-          <p>{{ meal.ingredients }}</p>
-          <div class="row text-center">
-            <button class="rounded-button" ng-show="!meal.added" ng-click="meal.added = !meal.added">ADD TO MENU</button>
-            <button class="rounded-button red-button" ng-show="meal.added" ng-click="meal.added = !meal.added">REMOVE FROM
-              MENU</button>
+    <div class="col-sm-9">
+      <div class="left-main">
+        <div>
+          <acme-navbar></acme-navbar>
+        </div>
+        <div class="jumbotron text-center">
+          <h1>SmartCart</h1>
+          <p class="lead">
+            Save Time. Waste Less. Eat Better.
+          </p>
+        </div>
+        <br>
+        <h1>Featured Meals</h1>
+        <br>
+        <div class="row">
+          <div class="col-sm-9 col-md-6" ng-repeat="meal in main.meals | orderBy:'rank'">
+            <div class="thumbnail">
+              <div class="caption">
+                <div class="pin" ng-class="{'red-pin': (meal.calories >= 2001), 'orange-pin': (meal.calories >= 1100 && meal.calories < 2001), 'green-pin': (meal.calories < 1100)}" ng-show="meal.calories">{{ meal.calories }}
+                  Calories Per Serving</div>
+                <h3>{{ meal.name }}</h3>
+                <div class="row text-center">
+                  <button class="rounded-button" ng-show="!meal.added" ng-click="main.addIngredients(meal)">ADD TO MENU</button>
+                  <button class="rounded-button red-button" ng-show="meal.added" ng-click="main.removeIngredients(meal)">REMOVE FROM
+                    MENU</button>
+                </div>
+              </div>
+              <div class="image-container">
+                <img ng-src="assets/images/{{ meal.image }}"/>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-2">
+            <h1>Your Meals</h1>
+          </div>
+          <div class="col-sm-6">
+            <button class="rounded-button">CREATE NEW MEAL</button>
+          </div>
+        </div>
+        <br>
+        <!--<div class="row">
+          <div class="col-sm-6 col-md-4" ng-repeat="meal in main.yourMeals">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3>{{ meal.name }}</h3>
+                <p>{{ meal.ingredients }}</p>
+                <p>{{ meal.added }}</p>
+                <button class="rounded-button" ng-click="meal.added = !meal.added">ADD TO MENU</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail" ng-show="main.yourMeals" ng-click="console.log(main.yourMeals.length)">
+              <p>Test</p>
+            </div>
+          </div>-->
       </div>
     </div>
-  </div>
-  <div class="row">
-    <h1>Your Meals</h1>
-    <button class="rounded-button">CREATE NEW MEAL</button>
-  </div>
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="meal in main.yourMeals">
-      <div class="thumbnail">
-        <div class="caption">
-          <h3>{{ meal.name }}</h3>
-          <p>{{ meal.ingredients }}</p>
-          <p>{{ meal.added }}</p>
-          <button class="rounded-button" ng-click="meal.added = !meal.added">ADD TO MENU</button>
+
+    <div class="col-xs-3">
+      <div class="right-main well">
+        <!--<p class="text-center" ng-bind="main.shoppingList.slice(0, vm.shoppingList.length-2) + '.'"</p>-->
+        <h1>Shopping List</h1>
+        <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
+          <p><input type="checkbox" ng-bind="ingredient.added"/> {{ ingredient.name }}</p>
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail" ng-show="main.yourMeals" ng-click="console.log(main.yourMeals.length)">
-        <p>Test</p>
-      </div>
-    </div>
   </div>
-
-
 </div>
+
+
