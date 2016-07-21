@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, webDevTec) {
     var vm = this;
 
     vm.yourMeals = [];
@@ -37,6 +37,7 @@
         if (meal.name === vm.ingredients[i].source) {
           vm.ingredients.splice(i, 1);
           i--;
+          //alternative is to have vm.ingredients.splice(i, meal.ingredients.length).
         }
       }
     }

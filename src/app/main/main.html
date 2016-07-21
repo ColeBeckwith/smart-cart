@@ -11,9 +11,7 @@
             Save Time. Waste Less. Eat Better.
           </p>
         </div>
-        <br>
         <h1>Featured Meals</h1>
-        <br>
         <div class="row">
           <div class="col-sm-6" ng-repeat="meal in main.meals | orderBy:'rank'">
             <div class="thumbnail">
@@ -41,7 +39,6 @@
             <button class="rounded-button">CREATE NEW MEAL</button>
           </div>
         </div>
-        <br>
         <div class="row">
           <h4 class="text-center" ng-show="main.yourMeals.length === 0">No Meals Available. Click 'Create New Meal' to
             customize
@@ -64,7 +61,6 @@
       <div class="right-main well">
         <!--<p class="text-center" ng-bind="main.shoppingList.slice(0, vm.shoppingList.length-2) + '.'"</p>-->
         <h1>Shopping List</h1>
-        <br>
         <p ng-show="main.ingredients.length === 0">Add Meals to Populate Shopping List</p>
         <div ng-hide="main.ingredients.length === 0" class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -77,7 +73,6 @@
             <li><a href="#">Store Section</a></li>
           </ul>
         </div>
-        <br>
         <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
           <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span
             class="ingredient-source">- {{ ingredient.source }}</span></p>
@@ -89,7 +84,6 @@
 
 <div class="hidden-lg hidden-md well bottom-list">
       <h1>Shopping List</h1>
-      <br>
       <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
         <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span class="ingredient-source">-
                                                                                            {{ ingredient.source

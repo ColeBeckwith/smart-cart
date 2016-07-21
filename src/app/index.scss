@@ -19,6 +19,10 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   padding: 0.2em 0;
 }*/
 
+h1 {
+  padding: 0 0 20px 0;
+}
+
 .image-container {
   display: flex;
   justify-content: center;
@@ -116,6 +120,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 .orange-pin {
   background: #AA7039;
 }
+
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

@@ -4,6 +4,7 @@
   angular
       .module('coleTraining')
       .service('webDevTec', featuredMeals);
+  //changed name of repository webDevTec to featuredMeals and app now populate featuredMeals.
 
   /** @ngInject */
   function featuredMeals() {
