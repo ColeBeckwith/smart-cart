@@ -10,7 +10,7 @@
     var mealList = [
       {
         'name': 'Chicken Alfredo',
-        'ingredients': ['Chicken', 'Alfredo Sauce', 'Noodles'],
+        "ingredients": ['Chicken', 'Alfredo Sauce', 'Noodles'],
         'calories': 3000,
         'image': 'chicken-alfredo.png'
       },

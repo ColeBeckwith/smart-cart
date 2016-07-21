@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-9">
+    <div class="col-md-9">
       <div class="left-main">
         <div>
           <acme-navbar></acme-navbar>
@@ -15,7 +15,7 @@
         <h1>Featured Meals</h1>
         <br>
         <div class="row">
-          <div class="col-sm-9 col-md-6" ng-repeat="meal in main.meals | orderBy:'rank'">
+          <div class="col-sm-6" ng-repeat="meal in main.meals | orderBy:'rank'">
             <div class="thumbnail">
               <div class="caption">
                 <div class="pin" ng-class="{'red-pin': (meal.calories >= 2001), 'orange-pin': (meal.calories >= 1100 && meal.calories < 2001), 'green-pin': (meal.calories < 1100)}" ng-show="meal.calories">{{ meal.calories }}
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-2">
+          <div class="col-sm-3">
             <h1>Your Meals</h1>
           </div>
           <div class="col-sm-6">
@@ -42,7 +42,10 @@
           </div>
         </div>
         <br>
-        <!--<div class="row">
+        <div class="row">
+          <h4 class="text-center" ng-show="main.yourMeals.length === 0">No Meals Available. Click 'Create New Meal' to
+            customize
+            your own meals.</h4>
           <div class="col-sm-6 col-md-4" ng-repeat="meal in main.yourMeals">
             <div class="thumbnail">
               <div class="caption">
@@ -53,24 +56,47 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail" ng-show="main.yourMeals" ng-click="console.log(main.yourMeals.length)">
-              <p>Test</p>
-            </div>
-          </div>-->
+         </div>
       </div>
     </div>
 
-    <div class="col-xs-3">
+    <div class="hidden-sm hidden-xs col-xs-3">
       <div class="right-main well">
         <!--<p class="text-center" ng-bind="main.shoppingList.slice(0, vm.shoppingList.length-2) + '.'"</p>-->
         <h1>Shopping List</h1>
+        <br>
+        <p ng-show="main.ingredients.length === 0">Add Meals to Populate Shopping List</p>
+        <div ng-hide="main.ingredients.length === 0" class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Sort By
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Alphabetical</a></li>
+            <li><a href="#">Meal</a></li>
+            <li><a href="#">Store Section</a></li>
+          </ul>
+        </div>
+        <br>
         <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
-          <p><input type="checkbox" ng-bind="ingredient.added"/> {{ ingredient.name }}</p>
+          <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span
+            class="ingredient-source">- {{ ingredient.source }}</span></p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="hidden-lg hidden-md well bottom-list">
+      <h1>Shopping List</h1>
+      <br>
+      <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
+        <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span class="ingredient-source">-
+                                                                                           {{ ingredient.source
+          }}</span></p>
+      </div>
+</div>
+
+
 
 
