@@ -62,18 +62,20 @@
         <!--<p class="text-center" ng-bind="main.shoppingList.slice(0, vm.shoppingList.length-2) + '.'"</p>-->
         <h1>Shopping List</h1>
         <p ng-show="main.ingredients.length === 0">Add Meals to Populate Shopping List</p>
-        <div ng-hide="main.ingredients.length === 0" class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Sort By
-            <span class="caret"></span>
+
+        <div ng-hide="main.ingredients.length === 0" class="dropdown" dropdown="">
+          <button role="button" class="btn btn-default dropdown-toggle" dropdown-toggle="" aria-haspopup="true"
+             aria-expanded="false">
+            Sort By <b class="caret"></b>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Alphabetical</a></li>
-            <li><a href="#">Meal</a></li>
-            <li><a href="#">Store Section</a></li>
+          <ul class="dropdown-menu">
+            <li><a ng-click="main.sortBy = 'name'">Alphabetical</a></li>
+            <li><a ng-click="main.sortBy = 'source'">Meal</a></li>
+            <li><a>Store Section</a></li>
+            <!--Eventually needs to be replace with ng-repeat-->
           </ul>
         </div>
-        <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
+        <div ng-repeat="ingredient in main.ingredients | orderBy: main.sortBy">
           <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span
             class="ingredient-source">- {{ ingredient.source }}</span></p>
         </div>

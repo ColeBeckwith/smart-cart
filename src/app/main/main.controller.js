@@ -8,13 +8,15 @@
   /** @ngInject */
   function MainController($timeout, webDevTec) {
     var vm = this;
+    var sortBy = 'name';
 
     vm.yourMeals = [];
     vm.classAnimation = '';
     vm.ingredients = [];
     vm.addIngredients = addIngredients;
     vm.removeIngredients = removeIngredients;
-
+    vm.sortBy = sortBy;
+    
     activate();
 
     function activate() {
