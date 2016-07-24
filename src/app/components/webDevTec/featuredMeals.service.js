@@ -77,7 +77,7 @@
       },
       {
         'name': 'Bison Burger',
-        "ingredients": ['Bison', 'Burger Buns', 'Tomatoes', 'Lettuce', 'Mayonnaise', 'Ketchup', 'Mustard'],
+        "ingredients": ['Bison', 'Burger Buns', 'Tomatoes', 'Spinach', 'Mayonnaise', 'Ketchup', 'Mustard'],
         'calories': 450,
         'image': 'bison-burger.png'
       },

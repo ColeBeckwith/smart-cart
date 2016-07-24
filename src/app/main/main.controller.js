@@ -9,14 +9,15 @@
   function MainController($timeout, webDevTec) {
     var vm = this;
     var sortBy = 'storeSection';
+    var customIngredient = '';
     var foodBySection = [
       {
         'category' : 'Fruits',
-        'foodInCategory' : ['blueberry', 'blueberries', 'raspberry', 'raspberries', 'apple', 'apples', 'limes']
+        'foodInCategory' : ['blueberry', 'blueberries', 'raspberry', 'raspberries', 'apple', 'apples', 'limes', 'grapefruit']
       },
       {
         'category' : 'Vegetables',
-        'foodInCategory' : ['kale', 'broccoli', 'carrots', 'asparagus', 'avocado', 'lettuce', 'tomatoes', 'red peppers', 'green peppers', 'jalapenos']
+        'foodInCategory' : ['kale', 'broccoli', 'carrots', 'asparagus', 'avocado', 'lettuce', 'tomatoes', 'red peppers', 'green peppers', 'jalapenos', 'spinach']
       },
       {
         'category' : 'Meats',
@@ -28,7 +29,7 @@
       },
       {
         'category' : 'Snacks',
-        'foodInCategory' : ['chips', 'salsa', 'cereal', 'queso']
+        'foodInCategory' : ['chips', 'salsa', 'cereal', 'queso', 'chocolate', 'chocolate frosting', 'icing', 'pine nuts']
       },
       {
         'category' : 'Bread',
@@ -36,7 +37,7 @@
       },
       {
         'category' : 'Spices & Condiments',
-        'foodInCategory' : ['salt', 'pepper', 'ground pepper', 'paprika', 'cumin', 'crushed red pepper', 'ketchup', 'mustard']
+        'foodInCategory' : ['salt', 'pepper', 'ground pepper', 'paprika', 'cumin', 'crushed red pepper', 'ketchup', 'mustard', 'mayonnaise']
       },
       {
         'category' : 'Other',
@@ -66,6 +67,9 @@
     vm.sortBy = sortBy;
     vm.foodBySection = foodBySection;
     vm.sortOptions = sortOptions;
+    vm.addCustomIngredient = addCustomIngredient;
+    vm.customIngredient = customIngredient;
+
 
     activate();
 
@@ -92,6 +96,11 @@
           //alternative is to have vm.ingredients.splice(i, meal.ingredients.length).
         }
       }
+    }
+
+    function addCustomIngredient() {
+      vm.ingredients.push({'name': vm.customIngredient.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()}), 'added': false, 'source': 'Manually Added', 'storeSection' : getStoreSection(vm.customIngredient)});
+      vm.customIngredient = '';
     }
 
     function getFeaturedMeals() {
