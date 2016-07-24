@@ -62,7 +62,25 @@
         "ingredients": ['Kale', 'Apples', 'Pine Nuts'],
         'calories': 300,
         'image': 'kale-salad.png'
-      }
+      },
+      {
+        'name': 'Eggs Benedict',
+        "ingredients": ['Eggs', 'Tomatoes', 'Hollandaise Sauce', 'Canadian Bacon'],
+        'calories': 600,
+        'image': 'eggs-benedict.png'
+      },
+      {
+        'name': 'Chocolate Cake',
+        "ingredients": ['Chocolate', 'Eggs', 'Milk', 'Chocolate Frosting'],
+        'calories': 1000,
+        'image': 'chocolate-cake.png'
+      },
+      {
+        'name': 'Bison Burger',
+        "ingredients": ['Bison', 'Burger Buns', 'Tomatoes', 'Lettuce', 'Mayonnaise'],
+        'calories': 900,
+        'image': 'bison-burger.png'
+      },
     ];
 
     this.getMeals = getMeals;

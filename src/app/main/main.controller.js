@@ -8,7 +8,7 @@
   /** @ngInject */
   function MainController($timeout, webDevTec) {
     var vm = this;
-    var sortBy = 'name';
+    var sortBy = 'storeSection';
     var foodBySection = [
       {
         'category' : 'Fruits',
@@ -16,11 +16,15 @@
       },
       {
         'category' : 'Vegetables',
-        'foodInCategory' : ['kale', 'broccoli', 'carrots', 'asparagus', 'avocado', 'lettuce']
+        'foodInCategory' : ['kale', 'broccoli', 'carrots', 'asparagus', 'avocado', 'lettuce', 'tomatoes']
       },
       {
         'category' : 'Meats',
-        'foodInCategory' : ['chicken', 'beef', 'lamb', 'lamb meat', 'turkey', 'ham', 'salmon', 'shrimp', 'sausage']
+        'foodInCategory' : ['chicken', 'beef', 'lamb', 'lamb meat', 'turkey', 'ham', 'salmon', 'shrimp', 'sausage', 'canadian bacon', 'bison']
+      },
+      {
+        'category' : 'Dairy',
+        'foodInCategory' : ['eggs', 'milk', 'cheese', 'butter']
       },
       {
         'category' : 'Snacks',
@@ -28,8 +32,26 @@
       },
       {
         'category' : 'Bread',
-        'foodInCategory' : ['bread', 'tortillas', 'pitas']
+        'foodInCategory' : ['bread', 'tortillas', 'pitas', 'burger buns', 'buns', 'hot dog buns']
+      },
+      {
+        'category' : 'Other',
+        'foodInCategory' : []
       }
+    ];
+    var sortOptions = [
+      {
+        'displayText' : 'Alphabetical',
+        'sortByString' : 'name'
+      },
+      {
+        'displayText' : 'Meal',
+        'sortByString' : 'source'
+      },
+      {
+        'displayText' : 'Store Section',
+        'sortByString' : 'storeSection'
+      },
     ];
 
     vm.yourMeals = [];
@@ -39,6 +61,7 @@
     vm.removeIngredients = removeIngredients;
     vm.sortBy = sortBy;
     vm.foodBySection = foodBySection;
+    vm.sortOptions = sortOptions;
 
     activate();
 
@@ -82,7 +105,7 @@
           return vm.foodBySection[i].category
         }
       }
-      return 'Miscellaneous';
+      return 'Other';
     }
 
     }

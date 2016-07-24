@@ -20,9 +20,10 @@
                   Calories Per Serving</div>
                 <h3>{{ meal.name }}</h3>
                 <div class="row text-center">
-                  <button class="rounded-button" ng-show="!meal.added" ng-click="main.addIngredients(meal)">ADD TO MENU</button>
+                  <button class="rounded-button" ng-show="!meal.added" ng-click="main.addIngredients(meal)">ADD TO
+                    CART</button>
                   <button class="rounded-button red-button" ng-show="meal.added" ng-click="main.removeIngredients(meal)">REMOVE FROM
-                    MENU</button>
+                    CART</button>
                 </div>
               </div>
               <div class="image-container">
@@ -69,15 +70,24 @@
             Sort By <b class="caret"></b>
           </button>
           <ul class="dropdown-menu">
-            <li><a ng-click="main.sortBy = 'name'">Alphabetical</a></li>
-            <li><a ng-click="main.sortBy = 'source'">Meal</a></li>
-            <li><a ng-click="main.sortBy = 'storeSection'">Store Section</a></li>
-            <!--Eventually needs to be replace with ng-repeat-->
+            <li ng-repeat="sortOption in main.sortOptions"><a ng-click="main.sortBy = sortOption.sortByString">{{ sortOption.displayText }}</a></li>
           </ul>
         </div>
-        <div ng-repeat="ingredient in main.ingredients | orderBy: main.sortBy">
+
+        <div ng-repeat="ingredient in main.ingredients | orderBy: main.sortBy" ng-hide="main.sortBy === 'storeSection'">
           <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span
             class="ingredient-source">- {{ ingredient.source }}</span></p>
+        </div>
+
+        <div ng-repeat="storeSection in main.foodBySection" ng-show="main.sortBy === 'storeSection'">
+          <h4>{{ storeSection.category }}</h4>
+          <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
+            <p ng-if="ingredient.storeSection === storeSection.category"><input type="checkbox" ng-model="ingredient.added"/> {{
+              ingredient.name
+              }}
+              <span
+              class="ingredient-source">- {{ ingredient.source }}</span></p>
+          </div>
         </div>
       </div>
     </div>
@@ -94,13 +104,10 @@
       Sort By <b class="caret"></b>
     </button>
     <ul class="dropdown-menu">
-      <li><a ng-click="main.sortBy = 'name'">Alphabetical</a></li>
-      <li><a ng-click="main.sortBy = 'source'">Meal</a></li>
-      <li><a ng-click="main.sortBy = 'storeSection'">Store Section</a></li>
-      <!--Eventually needs to be replace with ng-repeat-->
+      <li ng-repeat="sortOption in main.sortOptions"><a ng-click="main.sortBy = sortOption.sortByString">{{ sortOption.displayText }}</a></li>
     </ul>
   </div>
-  <div ng-repeat="ingredient in main.ingredients | orderBy: main.sortBy">
+  <div ng-repeat="ingredient in main.ingredients | orderBy: main.sortBy" ng-hide="main.sortBy === 'storeSection'">
     <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span
       class="ingredient-source">- {{ ingredient.source }}</span></p>
   </div>
