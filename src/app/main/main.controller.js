@@ -12,11 +12,11 @@
     var foodBySection = [
       {
         'category' : 'Fruits',
-        'foodInCategory' : ['blueberry', 'blueberries', 'raspberry', 'raspberries', 'apple', 'apples']
+        'foodInCategory' : ['blueberry', 'blueberries', 'raspberry', 'raspberries', 'apple', 'apples', 'limes']
       },
       {
         'category' : 'Vegetables',
-        'foodInCategory' : ['kale', 'broccoli', 'carrots', 'asparagus', 'avocado', 'lettuce', 'tomatoes']
+        'foodInCategory' : ['kale', 'broccoli', 'carrots', 'asparagus', 'avocado', 'lettuce', 'tomatoes', 'red peppers', 'green peppers', 'jalapenos']
       },
       {
         'category' : 'Meats',
@@ -24,7 +24,7 @@
       },
       {
         'category' : 'Dairy',
-        'foodInCategory' : ['eggs', 'milk', 'cheese', 'butter']
+        'foodInCategory' : ['eggs', 'milk', 'cheese', 'butter', 'yogurt']
       },
       {
         'category' : 'Snacks',
@@ -33,6 +33,10 @@
       {
         'category' : 'Bread',
         'foodInCategory' : ['bread', 'tortillas', 'pitas', 'burger buns', 'buns', 'hot dog buns']
+      },
+      {
+        'category' : 'Spices & Condiments',
+        'foodInCategory' : ['salt', 'pepper', 'ground pepper', 'paprika', 'cumin', 'crushed red pepper', 'ketchup', 'mustard']
       },
       {
         'category' : 'Other',

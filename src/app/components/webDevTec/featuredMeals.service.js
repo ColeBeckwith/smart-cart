@@ -12,31 +12,31 @@
       {
         'name': 'Chicken Alfredo',
         "ingredients": ['Chicken', 'Alfredo Sauce', 'Fettuccine Noodles', 'Broccoli'],
-        'calories': 3000,
+        'calories': 850,
         'image': 'chicken-alfredo.png'
       },
       {
         'name': 'Smoked Salmon',
         "ingredients": ['Salmon', 'Capers', 'Asparagus'],
-        'calories': 2000,
+        'calories': 300,
         'image': 'smoked-salmon.png'
       },
       {
         'name': 'Vegetable Pot Pie',
         "ingredients": ['Carrots', 'Broccoli', 'Bread', 'Cream of Mushroom Soup'],
-        'calories': 1000,
+        'calories': 500,
         'image': 'vegetable-pot-pie.png'
       },
       {
         'name': 'Grilled Shrimp Tacos',
-        "ingredients": ['Shrimp', 'Tortillas', 'Salsa', 'Avocado', 'Lettuce'],
-        'calories': 800,
+        "ingredients": ['Shrimp', 'Tortillas', 'Salsa', 'Avocado', 'Lettuce', 'Limes'],
+        'calories': 400,
         'image': 'shrimp-tacos.png'
       },
       {
         'name': 'Gyros',
         "ingredients": ['Lamb Meat', 'Pitas'],
-        'calories': 1900,
+        'calories': 900,
         'image': 'gyros.png'
       },
       {
@@ -48,37 +48,37 @@
       {
         'name': 'Deep Dish Pizza',
         "ingredients": ['Tomato Sauce', 'Cheese', 'Sausage'],
-        'calories': 3300,
+        'calories': 1000,
         'image': 'deep-dish-pizza.png'
       },
       {
         'name': 'Chicken Masala',
-        "ingredients": ['Chicken', 'Masala'],
-        'calories': 400,
+        "ingredients": ['Chicken', 'Yogurt', 'Jalapenos'],
+        'calories': 200,
         'image': 'chicken-masala.png'
       },
       {
         'name': 'Kale Salad',
         "ingredients": ['Kale', 'Apples', 'Pine Nuts'],
-        'calories': 300,
+        'calories': 150,
         'image': 'kale-salad.png'
       },
       {
         'name': 'Eggs Benedict',
-        "ingredients": ['Eggs', 'Tomatoes', 'Hollandaise Sauce', 'Canadian Bacon'],
-        'calories': 600,
+        "ingredients": ['Eggs', 'Tomatoes', 'Hollandaise Sauce', 'Canadian Bacon', 'Blueberries'],
+        'calories': 300,
         'image': 'eggs-benedict.png'
       },
       {
         'name': 'Chocolate Cake',
         "ingredients": ['Chocolate', 'Eggs', 'Milk', 'Chocolate Frosting'],
-        'calories': 1000,
+        'calories': 500,
         'image': 'chocolate-cake.png'
       },
       {
         'name': 'Bison Burger',
-        "ingredients": ['Bison', 'Burger Buns', 'Tomatoes', 'Lettuce', 'Mayonnaise'],
-        'calories': 900,
+        "ingredients": ['Bison', 'Burger Buns', 'Tomatoes', 'Lettuce', 'Mayonnaise', 'Ketchup', 'Mustard'],
+        'calories': 450,
         'image': 'bison-burger.png'
       },
     ];
