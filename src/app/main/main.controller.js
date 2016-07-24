@@ -56,10 +56,9 @@
       {
         'displayText' : 'Store Section',
         'sortByString' : 'storeSection'
-      },
+      }
     ];
 
-    vm.yourMeals = [];
     vm.classAnimation = '';
     vm.ingredients = [];
     vm.addIngredients = addIngredients;
@@ -70,11 +69,11 @@
     vm.addCustomIngredient = addCustomIngredient;
     vm.customIngredient = customIngredient;
 
-
     activate();
 
     function activate() {
       getFeaturedMeals();
+      //getStoreSections();
       $timeout(function() {
         vm.classAnimation = 'rubberBand';
       }, 4000);
@@ -83,7 +82,7 @@
     function addIngredients(meal) {
       meal.added = !meal.added;
       for (var i = 0; i < meal.ingredients.length; i++) {
-        vm.ingredients.push({'name': meal.ingredients[i], 'added': false, 'source': meal.name, 'storeSection' : getStoreSection(meal.ingredients[i])});
+        vm.ingredients.push({'name': meal.ingredients[i], 'added': false, 'source': meal.name, 'storeSection' : findStoreSection(meal.ingredients[i])});
       }
     }
 
@@ -99,7 +98,7 @@
     }
 
     function addCustomIngredient() {
-      vm.ingredients.push({'name': vm.customIngredient.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()}), 'added': false, 'source': 'Manually Added', 'storeSection' : getStoreSection(vm.customIngredient)});
+      vm.ingredients.push({'name': vm.customIngredient.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()}), 'added': false, 'source': 'Manually Added', 'storeSection' : findStoreSection(vm.customIngredient)});
       vm.customIngredient = '';
     }
 
@@ -111,8 +110,12 @@
       });
     }
 
+    /*function getStoreSections() {
+      vm.foodBySection = storeSection.getSections();
+    }*/
 
-    function getStoreSection(ingredient) {
+
+    function findStoreSection(ingredient) {
       for (var i = 0; i < foodBySection.length; i++) {
         if (vm.foodBySection[i].foodInCategory.indexOf(ingredient.toLowerCase()) !== -1) {
           return vm.foodBySection[i].category
