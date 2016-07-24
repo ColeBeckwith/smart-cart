@@ -11,7 +11,7 @@
     var mealList = [
       {
         'name': 'Chicken Alfredo',
-        "ingredients": ['Chicken', 'Alfredo Sauce', 'Noodles'],
+        "ingredients": ['Chicken', 'Alfredo Sauce', 'Fettuccine Noodles', 'Broccoli'],
         'calories': 3000,
         'image': 'chicken-alfredo.png'
       },
@@ -23,7 +23,7 @@
       },
       {
         'name': 'Vegetable Pot Pie',
-        "ingredients": ['Carrots', 'Brocolli', 'Bread', 'Cream of Mushroom Soup'],
+        "ingredients": ['Carrots', 'Broccoli', 'Bread', 'Cream of Mushroom Soup'],
         'calories': 1000,
         'image': 'vegetable-pot-pie.png'
       },

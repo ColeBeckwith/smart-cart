@@ -9,6 +9,28 @@
   function MainController($timeout, webDevTec) {
     var vm = this;
     var sortBy = 'name';
+    var foodBySection = [
+      {
+        'category' : 'Fruits',
+        'foodInCategory' : ['blueberry', 'blueberries', 'raspberry', 'raspberries', 'apple', 'apples']
+      },
+      {
+        'category' : 'Vegetables',
+        'foodInCategory' : ['kale', 'broccoli', 'carrots', 'asparagus', 'avocado', 'lettuce']
+      },
+      {
+        'category' : 'Meats',
+        'foodInCategory' : ['chicken', 'beef', 'lamb', 'lamb meat', 'turkey', 'ham', 'salmon', 'shrimp', 'sausage']
+      },
+      {
+        'category' : 'Snacks',
+        'foodInCategory' : ['chips', 'salsa', 'cereal', 'queso']
+      },
+      {
+        'category' : 'Bread',
+        'foodInCategory' : ['bread', 'tortillas', 'pitas']
+      }
+    ];
 
     vm.yourMeals = [];
     vm.classAnimation = '';
@@ -16,7 +38,8 @@
     vm.addIngredients = addIngredients;
     vm.removeIngredients = removeIngredients;
     vm.sortBy = sortBy;
-    
+    vm.foodBySection = foodBySection;
+
     activate();
 
     function activate() {
@@ -29,7 +52,7 @@
     function addIngredients(meal) {
       meal.added = !meal.added;
       for (var i = 0; i < meal.ingredients.length; i++) {
-        vm.ingredients.push({'name': meal.ingredients[i], 'added': false, 'source': meal.name});
+        vm.ingredients.push({'name': meal.ingredients[i], 'added': false, 'source': meal.name, 'storeSection' : getStoreSection(meal.ingredients[i])});
       }
     }
 
@@ -51,7 +74,17 @@
         meal.added = false;
       });
     }
-  }
 
+
+    function getStoreSection(ingredient) {
+      for (var i = 0; i < foodBySection.length; i++) {
+        if (vm.foodBySection[i].foodInCategory.indexOf(ingredient.toLowerCase()) !== -1) {
+          return vm.foodBySection[i].category
+        }
+      }
+      return 'Miscellaneous';
+    }
+
+    }
 
 })();
