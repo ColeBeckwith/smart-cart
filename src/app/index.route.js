@@ -4,8 +4,7 @@
   angular
     .module('coleTraining')
     .config(routerConfig);
-
-  /** @ngInject */
+    
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {

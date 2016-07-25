@@ -1,25 +1,25 @@
 (function() {
   'use strict';
 
-  describe('service webDevTec', function() {
-    var webDevTec;
+  describe('service featuredMeals', function() {
+    var featuredMeals;
 
     beforeEach(module('coleTraining'));
-    beforeEach(inject(function(_webDevTec_) {
-      webDevTec = _webDevTec_;
+    beforeEach(inject(function(_featuredMeals_) {
+      featuredMeals = _featuredMeals_;
     }));
 
     it('should be registered', function() {
-      expect(webDevTec).not.toEqual(null);
+      expect(featuredMeals).not.toEqual(null);
     });
 
-    describe('getTec function', function() {
+    describe('getMeals function', function() {
       it('should exist', function() {
-        expect(webDevTec.getMeals).not.toEqual(null);
+        expect(featuredMeals.getMeals).not.toEqual(null);
       });
 
       it('should return array of object', function() {
-        var data = webDevTec.getMeals();
+        var data = featuredMeals.getMeals();
         expect(data).toEqual(jasmine.any(Array));
         expect(data[0]).toEqual(jasmine.any(Object));
         expect(data.length > 5).toBeTruthy();

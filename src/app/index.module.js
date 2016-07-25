@@ -1,7 +1,12 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('coleTraining', ['ngAnimate', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr']);
-
+    angular
+        .module('coleTraining', [
+            'ngAnimate',
+            'ngResource',
+            'ui.router',
+            'ui.bootstrap',
+            'toastr'
+        ]);
 })();
