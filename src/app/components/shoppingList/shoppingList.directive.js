@@ -1,32 +1,29 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('coleTraining')
-    .directive('shoppingList', shoppingList);
+    angular
+        .module('coleTraining')
+        .directive('shoppingList', shoppingList);
 
-  /** @ngInject */
-  function shoppingList() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/shoppingList/shoppingList.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: ShoppingListController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+    function shoppingList() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'app/components/shoppingList/shoppingList.html',
+            controller: ShoppingListController,
+            controllerAs: 'shoppinglist',
+            bindToController: true
+        };
 
-    return directive;
+        return directive;
 
-    /** @ngInject */
-    function ShoppingListController(moment) {
-      var vm = this;
+        /**
+         * Everything the shoppingList directive needs should come from the controller below. If the data needs to
+         * come from another controller, service, et al. simply pass it as a parameter to the ShoppingListController
+         * @constructor
+         */
 
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+        function ShoppingListController() {
+            var vm = this;
+        }
     }
-  }
-
 })();
