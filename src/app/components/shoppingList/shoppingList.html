@@ -1,3 +1,28 @@
 <div>
-  <p>Test</p>
+  <h1>Shopping List</h1>
+  <input ng-submit="main.addCustomIngredient()" ng-model="main.customIngredient" type="text"/>
+  <button class="rounded-button" ng-click="main.addCustomIngredient()">ADD ITEM</button>
+  <p ng-show="main.ingredients.length === 0">Add Meals to Populate Shopping List</p>
+
+  <div class="dropdown" dropdown="">
+    <button role="button" class="btn btn-default dropdown-toggle" dropdown-toggle="" aria-haspopup="true"
+            aria-expanded="false">Sort By <b class="caret"></b>
+    </button>
+    <ul class="dropdown-menu">
+      <li ng-repeat="sortOption in main.sortOptions"><a ng-click="main.sortBy = sortOption.sortByString">{{ sortOption.displayText }}</a></li>
+    </ul>
+  </div>
+
+  <div ng-repeat="ingredient in main.ingredients | orderBy: main.sortBy" ng-hide="main.sortBy === 'storeSection'">
+    <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span
+      class="ingredient-source">- {{ ingredient.source }}</span></p>
+  </div>
+
+  <div ng-repeat="storeSection in main.foodBySection" ng-show="main.sortBy === 'storeSection'">
+    <h4>{{ storeSection.category }}</h4>
+    <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
+      <p ng-if="ingredient.storeSection === storeSection.category"><input type="checkbox" ng-model="ingredient.added"/> {{
+        ingredient.name }} <span class="ingredient-source">- {{ ingredient.source }}</span></p>
+    </div>
+  </div>
 </div>
