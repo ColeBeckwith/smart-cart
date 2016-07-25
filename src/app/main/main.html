@@ -3,7 +3,7 @@
         <div class="col-md-9">
             <div class="left-main">
                 <div>
-                    <acme-navbar></acme-navbar>
+                    <smart-cart-nav></smart-cart-nav>
                 </div>
                 <div class="jumbotron text-center">
                     <h1>SmartCart</h1>
@@ -13,7 +13,8 @@
                 </div>
                 <h1>Featured Meals</h1>
                 <div class="row">
-                    <div class="col-sm-6" ng-repeat="meal in main.meals | orderBy:'rank'">
+                    <div class="col-sm-6"
+                         ng-repeat="meal in main.meals | orderBy:'rank'">
                         <div class="thumbnail">
                             <div class="caption">
                                 <div class="pin"
@@ -74,7 +75,6 @@
 
         <div class="hidden-sm hidden-xs col-xs-3">
             <div class="right-main well">
-
                 <h1>Shopping List</h1>
                 <input ng-model="main.customIngredient" type="text"/>
                 <button class="rounded-button" ng-click="main.addCustomIngredient()">ADD ITEM</button>
@@ -85,27 +85,39 @@
                             class="btn btn-default dropdown-toggle"
                             dropdown-toggle=""
                             aria-haspopup="true"
-                            aria-expanded="false">Sort By <b class="caret"></b>
+                            aria-expanded="false">
+                        Sort By <b class="caret"></b>
                     </button>
                     <ul class="dropdown-menu">
                         <li ng-repeat="sortOption in main.sortOptions">
-                            <a ng-click="main.sortBy = sortOption.sortByString">{{ sortOption.displayText }}</a></li>
+                            <a ng-click="main.sortBy = sortOption.sortByString">{{ sortOption.displayText }}</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div ng-repeat="ingredient in main.ingredients | orderBy: main.sortBy"
                      ng-hide="main.sortBy === 'storeSection'">
-                    <p><input type="checkbox" ng-model="ingredient.added"/> {{ ingredient.name }} <span
-                            class="ingredient-source">- {{ ingredient.source }}</span></p>
+                    <p><input type="checkbox"
+                              ng-model="ingredient.added"/>
+                        {{ ingredient.name }}
+                        <span class="ingredient-source">
+                            - {{ ingredient.source }}
+                        </span>
+                    </p>
                 </div>
 
-                <div ng-repeat="storeSection in main.foodBySection" ng-show="main.sortBy === 'storeSection'">
+                <div ng-repeat="storeSection in main.foodBySection"
+                     ng-show="main.sortBy === 'storeSection'">
                     <h4>{{ storeSection.category }}</h4>
                     <div ng-repeat="ingredient in main.ingredients | orderBy: 'name'">
-                        <p ng-if="ingredient.storeSection === storeSection.category"><input type="checkbox"
-                                                                                            ng-model="ingredient.added"/> {{
-                                                                                                                          ingredient.name }}
-                            <span class="ingredient-source">- {{ ingredient.source }}</span></p>
+                        <p ng-if="ingredient.storeSection === storeSection.category">
+                            <input type="checkbox"
+                                   ng-model="ingredient.added"/>
+                            {{ ingredient.name }}
+                            <span class="ingredient-source">
+                                - {{ ingredient.source }}
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>

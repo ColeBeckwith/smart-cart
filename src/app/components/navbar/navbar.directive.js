@@ -1,32 +1,24 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('coleTraining')
-    .directive('acmeNavbar', acmeNavbar);
+    angular
+        .module('coleTraining')
+        .directive('smartCartNav', smartCartNav);
 
-  /** @ngInject */
-  function acmeNavbar() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/navbar/navbar.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: NavbarController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+    function smartCartNav() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'app/components/navbar/navbar.html',
+            controller: NavbarController,
+            controllerAs: 'vm',
+            bindToController: true
+        };
 
-    return directive;
+        return directive;
 
-    /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
-
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+        function NavbarController() {
+            var vm = this;
+        }
     }
-  }
 
 })();
