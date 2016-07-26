@@ -123,6 +123,20 @@ h1 {
   background: #AA7039;
 }
 
+.ingredient-list {
+  margin: 20px 0;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+  //This is not working.
+}
+
+.padded-input {
+  padding: 5px;
+}
+
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
