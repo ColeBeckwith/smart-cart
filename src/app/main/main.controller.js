@@ -82,6 +82,15 @@
     }
 
     function removeIngredients(meal) {
+
+      /**
+       * If meal has already been removed, exit early
+       */
+      if(!meal.added) {
+        console.log("Exiting early");
+        return;
+      }
+
       meal.added = !meal.added;
       for (var i = 0; i < vm.ingredients.length; i++) {
         if (meal.name === vm.ingredients[i].source) {
@@ -93,6 +102,15 @@
     }
     
     function addIngredients(meal) {
+
+      /**
+       * If meal has already been added, exit early
+       */
+      if(meal.added) {
+        console.log("Exiting early");
+        return;
+      }
+
       meal.added = !meal.added;
       for ( var i = 0; i < meal.ingredients.length; i++ ) {
         vm.ingredients.push({
