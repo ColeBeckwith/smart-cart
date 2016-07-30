@@ -10,7 +10,7 @@
             restrict: 'E',
             templateUrl: 'app/components/shoppingList/shoppingList.html',
             controller: ShoppingListController,
-            controllerAs: 'shoppinglist',
+            controllerAs: 'shoppingList',
             bindToController: true
         };
 

@@ -10,6 +10,7 @@
     var vm = this;
     var sortBy = 'storeSection';
     var customIngredient = '';
+    var newMealMode = false;
     var foodBySection = [
       {
         'category': 'Fruits',
@@ -69,6 +70,7 @@
     vm.sortOptions = sortOptions;
     vm.addCustomIngredient = addCustomIngredient;
     vm.customIngredient = customIngredient;
+    vm.newMealMode = newMealMode;
 
 
     activate();
@@ -100,7 +102,7 @@
         }
       }
     }
-    
+
     function addIngredients(meal) {
 
       /**
@@ -121,11 +123,11 @@
         });
       }
     }
-    
+
     /*function getStoreSections() {
       vm.foodBySection = storeSection.getSections();
     }*/
-    
+
     function addCustomIngredient() {
       vm.ingredients.push({
         'name': vm.customIngredient.replace(/\w\S*/g, function (txt) {

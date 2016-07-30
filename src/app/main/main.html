@@ -47,7 +47,8 @@
                         <h2>Your Meals</h2>
                     </div>
                     <div class="col-sm-6">
-                        <button class="rounded-button">CREATE NEW MEAL</button>
+                        <button class="rounded-button" ng-click="main.newMealMode = true">CREATE NEW MEAL</button>
+                      <!--TODO Currently does not work-->
                     </div>
                 </div>
                 <div class="row">
@@ -84,6 +85,10 @@
 <div class="hidden-lg hidden-md well bottom-list">
     <shopping-list></shopping-list>
 </div>
+
+<new-meal ng-show="!main.newMealMode"></new-meal>
+<!--TODO ng-show is set to ! temporarily for easier editing. Needs to be changed back before release-->
+
 
 
 

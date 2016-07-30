@@ -29,6 +29,7 @@ h1 {
   justify-content: center;
 }
 
+
 .thumbnail {
   height: 380px;
   width: 95%;
@@ -134,8 +135,62 @@ h1 {
 }
 
 .padded-input {
-  padding: 5px;
+  margin: 5px;
 }
+
+.faded-out {
+  opacity: .5;
+}
+
+.new-meal-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  margin: 10px 0;
+  width: 90%;
+  z-index: 9999;
+  background-color: #A5D6A7;
+  opacity: .99;
+
+  textarea {
+    resize: none;
+    width: 100%;
+  }
+
+  span {
+    text-size: .6em;
+  }
+}
+
+input[type=text] {
+
+}
+
+.custom-meal-form {
+  margin: 2em;
+  overflow: hidden;
+  width: 95%;
+
+    span {
+      font-size: 60%;
+    }
+}
+
+.remove-x-button {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  font-size: 2em;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+  }
+}
+
+
 
 
 /**
