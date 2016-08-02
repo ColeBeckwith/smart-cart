@@ -1,19 +1,30 @@
 <div class="new-meal-window">
-  <h3 class="text-center">Create Custom Meal</h3>
   <div class="remove-x-button" ng-click="main.newMealMode = false">
     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
   </div>
-  <div class="custom-meal-form">
-    <form>
-      <h4>Meal Name:</h4>
-      <input type="text" name="mealname">
-      <h4>Ingredients: <span>(Separated by Commas)</span></h4>
-      <input type="text" name="mealingredients">
-      <h4>Cooking Instructions:</h4>
-      <textarea></textarea>
-      <div class="row text-center">
-        <button class="rounded-button" ng-click="main.addCustomMeal()">ADD MEAL</button>
-      </div>
-    </form>
-  </div>
+  <!--TODO 'X' Should be placed in the top right of the window even while scrolling-->
+  <h3 class="text-center">Create Custom Meal</h3>
+    <div class="custom-meal-form">
+      <form>
+        <div class="row">
+          <div class="col-sm-6">
+            <h4>Meal Name:</h4>
+            <input type="text" name="mealname" ng-model="main.customMealName">
+          </div>
+          <div class="col-sm-6">
+            <h4>Calories Per Serving:</h4>
+            <input type="number" step="10" name="mealcalories" ng-model="main.customMealCalories">
+          </div>
+        </div>
+        <h4>Ingredients: <span>(Separated by Commas)</span></h4>
+        <input type="text" name="mealingredients" ng-model="main.customMealIngredients">
+        <h4>Cooking Instructions:</h4>
+        <textarea rows="10"></textarea>
+        <!--TODO on smaller screens, the textarea extends beyond the edge of the screen despite having a width
+        property as a percentage of its parent-->
+        <div class="row text-center">
+          <button class="rounded-button" ng-click="main.addCustomMeal()">ADD MEAL</button>
+        </div>
+      </form>
+    </div>
 </div>

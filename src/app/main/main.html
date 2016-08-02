@@ -11,6 +11,46 @@
                         Save Time. Waste Less. Eat Better.
                     </p>
                 </div>
+              <div class="row vertical-center">
+                <div class="col-sm-4">
+                  <h2>Your Meals</h2>
+                </div>
+                <div class="col-sm-6">
+                  <button class="rounded-button" ng-click="main.newMealMode = true">CREATE NEW MEAL</button>
+                </div>
+              </div>
+              <div class="row">
+                <h4 class="text-center"
+                    ng-show="main.yourMeals.length === 0">
+                  No Meals Available. Click 'Create New Meal' to customize your own meals.
+                </h4>
+                <div class="col-sm-6"
+                     ng-repeat="meal in main.yourMeals">
+                  <div class="thumbnail">
+                    <div class="caption">
+                      <div class="pin"
+                           ng-class="{'red-pin': (meal.calories >= 1000), 'orange-pin': (meal.calories >= 500 && meal.calories < 1000), 'green-pin': (meal.calories < 500)}"
+                           ng-show="meal.calories">
+                        {{ meal.calories }} Calories
+                      </div>
+                      <h3>{{ meal.name }}</h3>
+                      <p>{{ meal.ingredients.join(', ') + '.' }}</p> <!--.slice(0, vm.ingredients.length-2) + '.'-->
+                      <div class="row text-center">
+                        <button class="rounded-button"
+                                ng-show="!meal.added"
+                                ng-click="main.addIngredients(meal)">
+                          ADD TO CART
+                        </button>
+                        <button class="rounded-button red-button"
+                                ng-show="meal.added"
+                                ng-click="main.removeIngredients(meal)">
+                          REMOVE FROM CART
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
                 <h2>Featured Meals</h2>
                 <div class="row">
                     <div class="col-sm-6"
@@ -20,7 +60,7 @@
                                 <div class="pin"
                                      ng-class="{'red-pin': (meal.calories >= 1000), 'orange-pin': (meal.calories >= 500 && meal.calories < 1000), 'green-pin': (meal.calories < 500)}"
                                      ng-show="meal.calories">
-                                    {{ meal.calories }} Calories Per Serving
+                                    {{ meal.calories }} Calories
                                 </div>
                                 <h3>{{ meal.name }}</h3>
                                 <div class="row text-center">
@@ -42,35 +82,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row vertical-center">
-                    <div class="col-sm-4">
-                        <h2>Your Meals</h2>
-                    </div>
-                    <div class="col-sm-6">
-                        <button class="rounded-button" ng-click="main.newMealMode = true">CREATE NEW MEAL</button>
-                      <!--TODO Currently does not work-->
-                    </div>
-                </div>
-                <div class="row">
-                    <h4 class="text-center"
-                        ng-show="main.yourMeals.length === 0">
-                        No Meals Available. Click 'Create New Meal' to customize your own meals.
-                    </h4>
-                    <div class="col-sm-6 col-md-4"
-                         ng-repeat="meal in main.yourMeals">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>{{ meal.name }}</h3>
-                                <p>{{ meal.ingredients }}</p>
-                                <p>{{ meal.added }}</p>
-                                <button class="rounded-button"
-                                        ng-click="meal.added = !meal.added">
-                                    ADD TO MENU
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -86,7 +98,7 @@
     <shopping-list></shopping-list>
 </div>
 
-<new-meal ng-show="!main.newMealMode"></new-meal>
+<new-meal ng-show="main.newMealMode"></new-meal>
 <!--TODO ng-show is set to ! temporarily for easier editing. Needs to be changed back before release-->
 
 

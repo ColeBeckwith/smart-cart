@@ -71,12 +71,19 @@
     vm.addCustomIngredient = addCustomIngredient;
     vm.customIngredient = customIngredient;
     vm.newMealMode = newMealMode;
-
+    vm.addCustomMeal = addCustomMeal;
+    vm.formatCustomIngredients = formatCustomIngredients;
+    /*vm.customMealName = customMealName;
+    vm.customMealIngredients = customMealIngredients;
+    vm.customMealCalories = customMealCalories;
+    vm.clearCustomFields = clearCustomFields;*/
+    // TODO for some reason if these declarations are uncommented the Custom Meal Creation window starts opened.
 
     activate();
 
     function activate() {
       getFeaturedMeals();
+      clearCustomFields();
       //getStoreSections();
       $timeout(function() {
         vm.classAnimation = 'rubberBand';
@@ -84,12 +91,7 @@
     }
 
     function removeIngredients(meal) {
-
-      /**
-       * If meal has already been removed, exit early
-       */
       if(!meal.added) {
-        console.log("Exiting early");
         return;
       }
 
@@ -104,12 +106,7 @@
     }
 
     function addIngredients(meal) {
-
-      /**
-       * If meal has already been added, exit early
-       */
       if(meal.added) {
-        console.log("Exiting early");
         return;
       }
 
@@ -135,6 +132,33 @@
         }), 'added': false, 'source': 'Manually Added', 'storeSection': findStoreSection(vm.customIngredient)
       });
       vm.customIngredient = '';
+    }
+
+    function addCustomMeal() {
+      vm.yourMeals.push({
+        'name': vm.customMealName,
+        'ingredients': formatCustomIngredients(vm.customMealIngredients),
+        'calories': vm.customMealCalories,
+        'added': false
+      });
+      clearCustomFields();
+    }
+
+    function formatCustomIngredients(str) {
+      var arr = str.replace(/,\s*$/, "").split(", ");
+      for (var i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].replace(/\w\S*/g, function (match) {
+           return match.charAt(0).toUpperCase() + match.substr(1).toLowerCase()
+        })
+      }
+      return arr;
+    }
+
+    function clearCustomFields() {
+      vm.customMealCalories = 0;
+      vm.customMealIngredients = '';
+      vm.customMealName = '';
+      vm.newMealMode = false;
     }
 
     function getFeaturedMeals() {

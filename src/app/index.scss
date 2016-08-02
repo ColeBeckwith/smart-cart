@@ -92,10 +92,10 @@ h1 {
 
 .pin {
   position: absolute;
-  right: 2px;
-  top: -5px;
-  height: 7em;
-  width: 7em;
+  right: 10px;
+  top: -8px;
+  height: 8.5em;
+  width: 8.5em;
   border-radius: 50%;
   color: white;
   font-size: .7em;
@@ -144,6 +144,7 @@ h1 {
 
 .new-meal-window {
   position: fixed;
+  height: 85%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -152,7 +153,9 @@ h1 {
   width: 90%;
   z-index: 9999;
   background-color: #A5D6A7;
+  border: .8em solid #A5D6A7;
   opacity: .99;
+  overflow: scroll;
 
   textarea {
     resize: none;
@@ -182,12 +185,21 @@ input[type=text] {
   position: absolute;
   top: 0;
   right: 4px;
-  font-size: 2em;
+  font-size: 2.4em;
   cursor: pointer;
 
   &:hover {
     color: white;
   }
+}
+
+input[type=text] {
+  padding: 2px 8px !important;
+//  TODO this doesn't work without the important tag. Not sure what it's overriding, but it seems better to not use it.
+}
+
+textarea {
+  padding: 2px 8px !important;
 }
 
 
