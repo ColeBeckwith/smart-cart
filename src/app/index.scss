@@ -103,7 +103,7 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: "Arial";
+  font-family: "Arial", sans-serif;
 }
 
 .ingredient-source {
@@ -131,7 +131,7 @@ h1 {
 .vertical-center {
   display: flex;
   align-items: center;
-  //This is not working.
+  //TODO This is not working.
 }
 
 .padded-input {
@@ -200,6 +200,10 @@ input[type=text] {
 
 textarea {
   padding: 2px 8px !important;
+}
+
+list-selector {
+  // TODO this should act the same as the X in the window.
 }
 
 

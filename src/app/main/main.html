@@ -13,7 +13,7 @@
                 </div>
               <div class="row vertical-center">
                 <div class="col-sm-4">
-                  <h2>Your Meals</h2>
+                  <h3>Your Meals</h3>
                 </div>
                 <div class="col-sm-6">
                   <button class="rounded-button" ng-click="main.newMealMode = true">CREATE NEW MEAL</button>
@@ -22,7 +22,7 @@
               <div class="row">
                 <h4 class="text-center"
                     ng-show="main.yourMeals.length === 0">
-                  No Meals Available. Click 'Create New Meal' to customize your own meals.
+                  Click 'Create New Meal' to customize your own meals.
                 </h4>
                 <div class="col-sm-6"
                      ng-repeat="meal in main.yourMeals">
@@ -31,9 +31,10 @@
                       <div class="pin"
                            ng-class="{'red-pin': (meal.calories >= 1000), 'orange-pin': (meal.calories >= 500 && meal.calories < 1000), 'green-pin': (meal.calories < 500)}"
                            ng-show="meal.calories">
-                        {{ meal.calories }} Calories
+                        {{ meal.calories }}
+                        <p>Calories</p>
                       </div>
-                      <h3>{{ meal.name }}</h3>
+                      <h4>{{ meal.name }}</h4>
                       <p>{{ meal.ingredients.join(', ') + '.' }}</p> <!--.slice(0, vm.ingredients.length-2) + '.'-->
                       <div class="row text-center">
                         <button class="rounded-button"
@@ -51,7 +52,7 @@
                   </div>
                 </div>
               </div>
-                <h2>Featured Meals</h2>
+                <h3>Featured Meals</h3>
                 <div class="row">
                     <div class="col-sm-6"
                          ng-repeat="meal in main.meals | orderBy:'rank'">
@@ -62,7 +63,7 @@
                                      ng-show="meal.calories">
                                     {{ meal.calories }} Calories
                                 </div>
-                                <h3>{{ meal.name }}</h3>
+                                <h4>{{ meal.name }}</h4>
                                 <div class="row text-center">
                                     <button class="rounded-button"
                                             ng-show="!meal.added"
@@ -88,6 +89,7 @@
 
         <div class="hidden-sm hidden-xs col-xs-3">
             <div class="right-main well">
+              <list-selector></list-selector>
               <shopping-list></shopping-list>
             </div>
         </div>
@@ -95,11 +97,12 @@
 </div>
 
 <div class="hidden-lg hidden-md well bottom-list">
+    <list-selector></list-selector>
     <shopping-list></shopping-list>
 </div>
 
 <new-meal ng-show="main.newMealMode"></new-meal>
-<!--TODO ng-show is set to ! temporarily for easier editing. Needs to be changed back before release-->
+<!--TODO ng-show is set to ! temporarily for easier editing. Should be removed eventually.-->
 
 
 

@@ -22,27 +22,29 @@
   <div ng-repeat="ingredient in main.ingredients | orderBy: ['added', main.sortBy]"
        ng-hide="main.sortBy === 'storeSection'">
     <!--TODO when a checkbox is clicked, the page jumps to that element. This needs to be disabled.-->
-    <p ng-class="{'faded-out' : ingredient.added}"><input type="checkbox"
-              ng-model="ingredient.added"/>
-      {{ ingredient.name }}
-                          <span class="ingredient-source">
-                              - {{ ingredient.source }}
-                          </span>
-    </p>
+      <p ng-class="{'faded-out' : ingredient.added}">
+        <input type="checkbox"
+               ng-model="ingredient.added"/>
+        {{ ingredient.name }}
+                            <span class="ingredient-source">
+                                - {{ ingredient.source }}
+                            </span>
+
+      </p>
   </div>
 
   <div ng-repeat="storeSection in main.foodBySection"
        ng-show="main.sortBy === 'storeSection'">
     <h4>{{ storeSection.category }}</h4>
     <div ng-repeat="ingredient in main.ingredients | orderBy: ['added', 'name']">
-      <p ng-if="ingredient.storeSection === storeSection.category" ng-class="{'faded-out' : ingredient.added}">
-        <input type="checkbox"
-               ng-model="ingredient.added"/>
-        {{ ingredient.name }}
-                              <span class="ingredient-source">
-                                  - {{ ingredient.source }}
-                              </span>
-      </p>
+        <p ng-if="ingredient.storeSection === storeSection.category" ng-class="{'faded-out' : ingredient.added}">
+          <input type="checkbox"
+                 ng-model="ingredient.added"/>
+          {{ ingredient.name }}
+                                <span class="ingredient-source">
+                                    - {{ ingredient.source }}
+                                </span>
+        </p>
     </div>
   </div>
 </div>
