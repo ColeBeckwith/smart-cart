@@ -21,18 +21,17 @@
               </div>
               <div class="row">
                 <h4 class="text-center"
-                    ng-show="main.yourMeals.length === 0">
+                    ng-show="main.yourIngredients.length === 0">
                   Click 'Create New Meal' to customize your own meals.
                 </h4>
                 <div class="col-sm-6"
-                     ng-repeat="meal in main.yourMeals">
+                     ng-repeat="meal in main.yourIngredients">
                   <div class="thumbnail">
                     <div class="caption">
                       <div class="pin"
                            ng-class="{'red-pin': (meal.calories >= 1000), 'orange-pin': (meal.calories >= 500 && meal.calories < 1000), 'green-pin': (meal.calories < 500)}"
                            ng-show="meal.calories">
-                        {{ meal.calories }}
-                        <p>Calories</p>
+                        {{ meal.calories }} Calories
                       </div>
                       <h4>{{ meal.name }}</h4>
                       <p>{{ meal.ingredients.join(', ') + '.' }}</p> <!--.slice(0, vm.ingredients.length-2) + '.'-->
@@ -62,6 +61,7 @@
                                      ng-class="{'red-pin': (meal.calories >= 1000), 'orange-pin': (meal.calories >= 500 && meal.calories < 1000), 'green-pin': (meal.calories < 500)}"
                                      ng-show="meal.calories">
                                     {{ meal.calories }} Calories
+                                  <!--TODO Calories font is too small, but when enlarged, it enlarges the pin as well-->
                                 </div>
                                 <h4>{{ meal.name }}</h4>
                                 <div class="row text-center">
@@ -91,6 +91,7 @@
             <div class="right-main well">
               <list-selector></list-selector>
               <shopping-list ng-show="listSelector.activeTab === 'ingredients'"></shopping-list>
+              <meal-list ng-show="listSelector.activeTab === 'meals'"></meal-list>
             </div>
         </div>
     </div>

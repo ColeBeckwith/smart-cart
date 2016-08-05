@@ -60,6 +60,7 @@
       }
     ];
 
+    vm.yourIngredients = [];
     vm.yourMeals = [];
     vm.classAnimation = '';
     vm.ingredients = [];
@@ -96,6 +97,14 @@
       }
 
       meal.added = !meal.added;
+
+      for (var i = 0; i < vm.yourMeals.length; i++) {
+        if (vm.yourMeals[i].name === meal.name) {
+          vm.yourMeals.splice(i, 1);
+          i--;
+        }
+      }
+
       for (var i = 0; i < vm.ingredients.length; i++) {
         if (meal.name === vm.ingredients[i].source) {
           vm.ingredients.splice(i, 1);
@@ -111,6 +120,10 @@
       }
 
       meal.added = !meal.added;
+      vm.yourMeals.push({
+        'name' : meal.name
+      });
+
       for ( var i = 0; i < meal.ingredients.length; i++ ) {
         vm.ingredients.push({
           'name': meal.ingredients[i],
@@ -135,7 +148,7 @@
     }
 
     function addCustomMeal() {
-      vm.yourMeals.push({
+      vm.yourIngredients.push({
         'name': vm.customMealName,
         'ingredients': formatCustomIngredients(vm.customMealIngredients),
         'calories': vm.customMealCalories,
