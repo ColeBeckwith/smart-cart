@@ -19,7 +19,11 @@
     function listSelectorController() {
       var vm = this;
 
-      
+      var activeTab = 'ingredients';
+      //TODO Page doesn't load with shoppingCart directive being displayed.
+      //TODO These declarations have no effect on the page. They work fine without only activeTab and no 'listSelector.' prefix.
+
+      vm.activeTab = activeTab;
     }
   }
 

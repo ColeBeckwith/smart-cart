@@ -1,8 +1,9 @@
 <div>
   <section class="tabbable">
-    <ul class="nav nav-tabs" role="tablist">
-      <li data-toggle="tabs" role="tab" class="active"><a>Ingredients</a></li>
-      <li data-toggle="tabs" role="tab"><a>Meals</a></li>
+    <ul class="nav nav-tabs" data-tabs="tabs" role="tablist">
+      <li data-toggle="tabs" role="tab" ng-click="listSelector.activeTab = 'ingredients'" class="active" ><a>
+        Ingredients</a></li>
+      <li data-toggle="tabs" role="tab" ng-click="listSelector.activeTab = 'meals'"><a>Meals</a></li>
       <!--TODO active class does not toggle. This is not an issue without the CDN on the index.html file-->
     </ul>
   </section>

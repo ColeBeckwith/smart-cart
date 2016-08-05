@@ -63,8 +63,8 @@
     vm.yourMeals = [];
     vm.classAnimation = '';
     vm.ingredients = [];
-    vm.addIngredients = addIngredients;
-    vm.removeIngredients = removeIngredients;
+    vm.addToCart = addToCart;
+    vm.removeFromCart = removeFromCart;
     vm.sortBy = sortBy;
     vm.foodBySection = foodBySection;
     vm.sortOptions = sortOptions;
@@ -90,7 +90,7 @@
       }, 4000);
     }
 
-    function removeIngredients(meal) {
+    function removeFromCart(meal) {
       if(!meal.added) {
         return;
       }
@@ -105,7 +105,7 @@
       }
     }
 
-    function addIngredients(meal) {
+    function addToCart(meal) {
       if(meal.added) {
         return;
       }

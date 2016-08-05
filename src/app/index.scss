@@ -20,6 +20,20 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   padding: 0.2em 0;
 }
 
+.jumbotron {
+  background: url('/assets/images/jumbotron-picture.png') center center;
+//  TODO make background image opaque without altering text.
+  overflow: hidden;
+
+  h1 {
+    color: white !important;
+  }
+
+  p {
+    color: white;
+  }
+}
+
 h1 {
   padding: 0 0 20px 0;
 }
