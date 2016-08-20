@@ -1,11 +1,19 @@
 <div>
-  <section class="tabbable">
-    <ul class="nav nav-tabs" data-tabs="tabs" role="tablist">
-      <li data-toggle="tabs" role="tab" ng-click="listSelector.activeTab = 'ingredients'" class="active" ><a>
-        Ingredients</a></li>
-      <li data-toggle="tabs" role="tab" ng-click="listSelector.activeTab = 'meals'"><a>Meals</a></li>
-      <!--TODO active class does not toggle. Other functionality is working.-->
-    </ul>
-  </section>
+    <section class="tabbable">
+        <ul class="nav nav-tabs" data-tabs="tabs" role="tablist">
+            <li data-toggle="tabs"
+                role="tab"
+                ng-class="{active: listSelector.activeTab === 'ingredients'}">
+                <a ng-click="listSelector.activeTab = 'ingredients'">
+                    Ingredients
+                </a>
+            </li>
+            <li data-toggle="tabs"
+                role="tab"
+                ng-class="{active: listSelector.activeTab === 'meals'}">
+                <a ng-click="listSelector.activeTab = 'meals'">Meals</a>
+            </li>
+        </ul>
+    </section>
 </div>
 

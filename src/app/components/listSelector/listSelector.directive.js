@@ -1,30 +1,24 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('coleTraining')
-    .directive('listSelector', listSelector);
+    angular
+        .module('coleTraining')
+        .directive('listSelector', listSelector);
 
-  function listSelector() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/listSelector/listSelector.html',
-      controller: listSelectorController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+    function listSelector() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'app/components/listSelector/listSelector.html',
+            controller: listSelectorController,
+            controllerAs: 'listSelector',
+            bindToController: true
+        };
 
-    return directive;
+        return directive;
 
-    function listSelectorController() {
-      var vm = this;
-
-      var activeTab = 'ingredients';
-      //TODO Page doesn't load with shoppingCart directive being displayed.
-      //TODO These declarations have no effect on the page. They work fine without only activeTab and no 'listSelector.' prefix.
-
-      vm.activeTab = activeTab;
+        function listSelectorController() {
+            var vm = this;
+            vm.activeTab = 'ingredients';
+        }
     }
-  }
-
 })();
