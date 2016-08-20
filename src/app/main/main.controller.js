@@ -149,7 +149,9 @@
 
     function addCustomMeal() {
       vm.yourIngredients.push({
-        'name': vm.customMealName,
+        'name': vm.customMealName.replace(/\w\S*/g, function (match) {
+          return match.charAt(0).toUpperCase() + match.substr(1).toLowerCase()
+        }),
         'ingredients': formatCustomIngredients(vm.customMealIngredients),
         'calories': vm.customMealCalories,
         'added': false

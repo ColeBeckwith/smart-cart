@@ -21,18 +21,29 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 .jumbotron {
-  background: url('/assets/images/jumbotron-picture.png') center center;
+  //background: url('/assets/images/jumbotron-picture.png') center center;
 //  TODO make background image opaque without altering text.
   overflow: hidden;
 
   h1 {
-    color: white !important;
+    color: black !important;
   }
 
   p {
-    color: white;
+    color: black;
   }
 }
+
+/*.jumbotron-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .6;
+  z-index: -3;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}*/
 
 h1 {
   padding: 0 0 20px 0;
@@ -45,13 +56,18 @@ h1 {
 
 
 .thumbnail {
-  height: 380px;
+  height: 360px;
   width: 95%;
 
   img {
     max-width: 100%;
     max-height: 200px;
   }
+}
+
+.custom-thumbnail {
+  height: 200px;
+  width: 95%;
 }
 
 .right-main {
@@ -69,7 +85,7 @@ h1 {
 }
 
 .rounded-button {
-  font-family: "Tahoma";
+  font-family: "Tahoma", sans-serif;
   border-radius: 50px;
   background: #2B803E;
   padding: 1em;
@@ -169,7 +185,6 @@ h1 {
   background-color: #A5D6A7;
   border: .8em solid #A5D6A7;
   opacity: .99;
-  overflow: scroll;
 
   textarea {
     resize: none;
@@ -181,8 +196,14 @@ h1 {
   }
 }
 
-input[type=text] {
-
+.overflow-scroll {
+  overflow: scroll;
+  height: 100%;
+  width: 95%;
+  margin: auto;
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 .custom-meal-form {
@@ -201,6 +222,7 @@ input[type=text] {
   right: 4px;
   font-size: 2.4em;
   cursor: pointer;
+  z-index: 15;
 
   &:hover {
     color: white;
