@@ -7,6 +7,5 @@
 
     function AboutController() {
         var vm = this;
-        vm.name = 'Cole';
     }
 })();

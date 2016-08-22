@@ -24,6 +24,8 @@
 
         function ShoppingListController() {
             var vm = this;
+
+            vm.sortBy = 'storeSection'
         }
     }
 })();

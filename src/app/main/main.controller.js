@@ -78,7 +78,7 @@
     vm.customMealIngredients = customMealIngredients;
     vm.customMealCalories = customMealCalories;
     vm.clearCustomFields = clearCustomFields;*/
-    // TODO for some reason if these declarations are uncommented the Custom Meal Creation window starts opened.
+    // TODO if these declarations are uncommented the Custom Meal Creation window starts opened.
 
     activate();
 
