@@ -12,7 +12,7 @@
     Sort By <b class="caret"></b>
   </button>
   <ul class="dropdown-menu">
-    <li ng-repeat="sortOption in main.sortOptions">
+    <li ng-repeat="sortOption in shoppingList.sortOptions">
       <a ng-click="shoppingList.sortBy = sortOption.sortByString">{{ sortOption.displayText }}</a>
     </li>
   </ul>
@@ -20,8 +20,8 @@
 
 <div class="ingredient-list">
   <div ng-repeat="ingredient in main.ingredients | orderBy: ['added', shoppingList.sortBy]"
-       ng-hide="shoppingList.sortBy === 'storeSection'">
-    <!--TODO when a checkbox is clicked, the page jumps to that element. This needs to be disabled.-->
+       ng-if="shoppingList.sortBy !== 'storeSection'">
+    <!--TODO disable page jump when checkbox clicked.-->
       <p ng-class="{'faded-out' : ingredient.added}">
         <input type="checkbox"
                ng-model="ingredient.added"/>
@@ -33,8 +33,8 @@
       </p>
   </div>
 
-  <div ng-repeat="storeSection in main.foodBySection"
-       ng-show="shoppingList.sortBy === 'storeSection'">
+  <div ng-repeat="storeSection in shoppingList.foodBySection"
+       ng-if="shoppingList.sortBy === 'storeSection'">
     <h4>{{ storeSection.category }}</h4>
     <div ng-repeat="ingredient in main.ingredients | orderBy: ['added', 'name']">
         <p ng-if="ingredient.storeSection === storeSection.category" ng-class="{'faded-out' : ingredient.added}">
@@ -42,7 +42,7 @@
                  ng-model="ingredient.added"/>
           {{ ingredient.name }}
                                 <span class="ingredient-source">
-                                    - {{ ingredient.source }}
+                                    - {{ ingredient.source }} - {{ ingredient.storeSection }}
                                 </span>
         </p>
     </div>

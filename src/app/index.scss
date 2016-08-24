@@ -13,6 +13,10 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 // endbower
 
 
+
+$scGreen: #2B803E;
+$scRed: #AA4439;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -22,7 +26,6 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 .jumbotron {
   background: url('/assets/images/shopping-cart.png') bottom center;
-//  TODO make background image opaque without altering text.
   overflow: hidden;
 
   h1 {
@@ -34,16 +37,6 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   }
 }
 
-/*.jumbotron-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: .6;
-  z-index: -3;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-}*/
 
 h1 {
   padding: 0 0 20px 0;
@@ -87,7 +80,7 @@ h1 {
 .rounded-button {
   font-family: "Tahoma", sans-serif;
   border-radius: 50px;
-  background: #2B803E;
+  background: $scGreen;
   padding: 1em;
   color: white;
   border: 0;
@@ -109,7 +102,7 @@ h1 {
 }
 
 .red-button {
-  background: #AA4439;
+  background: $scRed;
 
   &:hover {
     background: #F5A69E;
@@ -143,11 +136,11 @@ h1 {
 }
 
 .red-pin {
-  background: #AA4439;
+  background: $scRed;
 }
 
 .green-pin {
-  background: #2B803E;
+  background: $scGreen;
 }
 
 .orange-pin {

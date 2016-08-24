@@ -9,7 +9,7 @@
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/shoppingList/shoppingList.html',
-            controller: ShoppingListController,
+            controller: shoppingListController,
             controllerAs: 'shoppingList',
             bindToController: true
         };
@@ -22,10 +22,30 @@
          * @constructor
          */
 
-        function ShoppingListController() {
+        function shoppingListController(foodBySection) {
             var vm = this;
 
-            vm.sortBy = 'storeSection'
+            vm.foodBySection = foodBySection.getSections();
+
+            var sortBy = 'storeSection';
+            var sortOptions = [
+              {
+                'displayText': 'Alphabetical',
+                'sortByString': 'name'
+              },
+              {
+                'displayText': 'Meal',
+                'sortByString': 'source'
+              },
+              {
+                'displayText': 'Store Section',
+                'sortByString': 'storeSection'
+              }
+            ];
+
+            vm.sortBy = sortBy;
+            vm.sortOptions = sortOptions;
+            vm.sortBy = 'storeSection';
         }
     }
 })();

@@ -10,7 +10,7 @@
       restrict: 'E',
       templateUrl: 'app/components/mealList/mealList.html',
       controller: mealListController,
-      controllerAs: 'vm',
+      controllerAs: 'mealList',
       bindToController: true
     };
 
