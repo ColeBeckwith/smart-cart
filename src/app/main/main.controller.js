@@ -8,7 +8,7 @@
   /** @ngInject */
   function MainController($timeout, featuredMeals, foodBySection) {
     var vm = this;
-    var customIngredient = '';
+
     var newMealMode = false;
 
     vm.yourIngredients = [];
@@ -17,8 +17,6 @@
     vm.ingredients = [];
     vm.addToCart = addToCart;
     vm.removeFromCart = removeFromCart;
-    vm.addCustomIngredient = addCustomIngredient;
-    vm.customIngredient = customIngredient;
     vm.newMealMode = newMealMode;
     vm.addCustomMeal = addCustomMeal;
     vm.formatCustomIngredients = formatCustomIngredients;
@@ -46,6 +44,30 @@
       vm.foodBySection = foodBySection.getSections();
     }
 
+    function addToCart(meal) {
+      if(meal.added) {
+        return;
+      }
+
+      meal.added = !meal.added;
+      vm.yourMeals.push({
+        'name' : meal.name
+      });
+
+      for ( var i = 0; i < meal.ingredients.length; i++ ) {
+        vm.ingredients.push({
+          'name': meal.ingredients[i],
+          'added': false,
+          'source': meal.name,
+          'storeSection': foodBySection.findStoreSection(meal.ingredients[i])
+        });
+      }
+    }
+
+    /*vm.findStoreSection = function(ingredient) {
+     foodBySection.findStoreSection(ingredient)
+     };*/
+    
     function removeFromCart(meal) {
       if(!meal.added) {
         return;
@@ -67,36 +89,6 @@
           //alternative is to have vm.ingredients.splice(i, meal.ingredients.length).
         }
       }
-    }
-
-    function addToCart(meal) {
-      if(meal.added) {
-        return;
-      }
-
-      meal.added = !meal.added;
-      vm.yourMeals.push({
-        'name' : meal.name
-      });
-
-      for ( var i = 0; i < meal.ingredients.length; i++ ) {
-        vm.ingredients.push({
-          'name': meal.ingredients[i],
-          'added': false,
-          'source': meal.name,
-          'storeSection': findStoreSection(meal.ingredients[i])
-        });
-      }
-    }
-
-
-    function addCustomIngredient() {
-      vm.ingredients.push({
-        'name': vm.customIngredient.replace(/\w\S*/g, function (txt) {
-          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-        }), 'added': false, 'source': 'Manually Added', 'storeSection': findStoreSection(vm.customIngredient)
-      });
-      vm.customIngredient = '';
     }
 
     function addCustomMeal() {
@@ -127,16 +119,6 @@
       vm.customMealName = '';
       vm.newMealMode = false;
     }
-
-    function findStoreSection(ingredient) {
-      for ( var i = 0; i < foodBySection.length; i++ ) {
-        if ( vm.foodBySection[i].foodInCategory.indexOf(ingredient.toLowerCase()) !== -1 ) {
-          return vm.foodBySection[i].category
-        }
-      }
-      return 'Other';
-    }
-    //TODO All ingredients are being given a storeSection property of 'other'
   }
 
 })();

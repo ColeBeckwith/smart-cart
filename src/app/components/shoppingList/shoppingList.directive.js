@@ -27,7 +27,7 @@
 
             vm.foodBySection = foodBySection.getSections();
 
-            var sortBy = 'storeSection';
+            var customIngredient = '';
             var sortOptions = [
               {
                 'displayText': 'Alphabetical',
@@ -43,9 +43,24 @@
               }
             ];
 
-            vm.sortBy = sortBy;
             vm.sortOptions = sortOptions;
             vm.sortBy = 'storeSection';
+            vm.addCustomIngredient = addCustomIngredient;
+            vm.customIngredient = customIngredient;
+
+            function addCustomIngredient() {
+              main.ingredients.push({
+                'name': vm.customIngredient.replace(/\w\S*/g, function (txt) {
+                  return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+                }),
+                'added': false,
+                'source': 'Manually Added',
+                'storeSection': 'Other'/*findStoreSection(vm.customIngredient)*/
+              });
+              vm.customIngredient = '';
+            }
+            //TODO Can't push ingredient into array from the main controller. Thinking that main.ingredients belongs in a service?
+
         }
     }
 })();

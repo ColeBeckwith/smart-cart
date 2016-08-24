@@ -222,6 +222,11 @@ h1 {
   }
 }
 
+.remove-text {
+  color: $scRed;
+  font-size: 90%;
+}
+
 input[type=text] {
   padding: 2px 8px !important;
 //  TODO this doesn't work without the important tag. Not sure what it's overriding, but it seems better to not use it.

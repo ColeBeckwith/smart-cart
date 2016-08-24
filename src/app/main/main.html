@@ -92,8 +92,8 @@
         <div class="hidden-sm hidden-xs col-xs-3">
             <div class="right-main well">
               <list-selector></list-selector>
-              <shopping-list ng-show="listSelector.activeTab === 'ingredients'"></shopping-list>
-              <meal-list ng-show="listSelector.activeTab === 'meals'"></meal-list>
+              <shopping-list ng-if="listSelector.activeTab === 'ingredients'"></shopping-list>
+              <meal-list ng-if="listSelector.activeTab === 'meals'"></meal-list>
             </div>
         </div>
     </div>
@@ -101,8 +101,8 @@
 
 <div class="hidden-lg hidden-md well bottom-list">
   <list-selector></list-selector>
-  <shopping-list ng-show="listSelector.activeTab === 'ingredients'"></shopping-list>
-  <meal-list ng-show="listSelector.activeTab === 'meals'"></meal-list>
+  <shopping-list ng-if="listSelector.activeTab === 'ingredients'"></shopping-list>
+  <meal-list ng-if="listSelector.activeTab === 'meals'"></meal-list>
 </div>
 
 <new-meal ng-if="main.newMealMode"></new-meal>
