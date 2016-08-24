@@ -35,7 +35,7 @@
 
   <div ng-repeat="storeSection in shoppingList.foodBySection"
        ng-if="shoppingList.sortBy === 'storeSection'">
-    <h4>{{ storeSection.category }}</h4>
+    <h5>{{ storeSection.category }}</h5>
     <div ng-repeat="ingredient in main.ingredients | orderBy: ['added', 'name']">
         <p ng-if="ingredient.storeSection === storeSection.category" ng-class="{'faded-out' : ingredient.added}">
           <input type="checkbox"

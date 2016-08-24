@@ -64,10 +64,10 @@
       }
     }
 
-    /*vm.findStoreSection = function(ingredient) {
+    vm.findStoreSection = function(ingredient) {
      foodBySection.findStoreSection(ingredient)
-     };*/
-    
+    };
+
     function removeFromCart(meal) {
       if(!meal.added) {
         return;
