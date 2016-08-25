@@ -16,17 +16,15 @@
     vm.findStoreSection = findStoreSection;
 
     function findStoreSection(ingredient) {
-      alert('here');
-      for ( var i = 0; i < vm.foodBySection.length; i++ ) {
-        if ( vm.foodBySection[i].foodInCategory.indexOf(ingredient.toLowerCase()) !== -1 ) {
-          return vm.foodBySection[i].category
+      for ( var i = 0; i < foodSections.length; i++ ) {
+        if ( foodSections[i].foodInCategory.indexOf(ingredient.toLowerCase()) !== -1 ) {
+          return foodSections[i].category
         }
       }
       return 'Other';
     }
-    //TODO this function never gets called from the main controller.
 
-    var foodBySection = [
+    var foodSections = [
       {
         'category': 'Fruits',
         'foodInCategory': ['blueberry', 'blueberries', 'raspberry', 'raspberries', 'apple', 'apples', 'limes', 'grapefruit']
@@ -62,7 +60,7 @@
     ];
 
     function getSections() {
-      return foodBySection;
+      return foodSections;
     }
   }
 })();

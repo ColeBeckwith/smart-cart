@@ -55,7 +55,7 @@
                 }),
                 'added': false,
                 'source': 'Manually Added',
-                'storeSection': 'Other'/*findStoreSection(vm.customIngredient)*/
+                'storeSection': foodBySection.findStoreSection(vm.customIngredient)
               });
               vm.customIngredient = '';
             }

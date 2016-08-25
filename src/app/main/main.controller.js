@@ -41,7 +41,7 @@
     }
 
     function getStoreSections() {
-      vm.foodBySection = foodBySection.getSections();
+      vm.foodSections = foodBySection.getSections();
     }
 
     function addToCart(meal) {
@@ -63,10 +63,6 @@
         });
       }
     }
-
-    vm.findStoreSection = function(ingredient) {
-     foodBySection.findStoreSection(ingredient)
-    };
 
     function removeFromCart(meal) {
       if(!meal.added) {
