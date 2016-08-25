@@ -16,7 +16,10 @@
 
         return directive;
 
-        function shoppingListController(foodBySection, cartIngredients) {
+        function shoppingListController(/*foodBySection, cartIngredients*/) {
+
+            shoppingListController.$inject = ["foodBySection", "cartIngredients"];
+
             var vm = this;
 
             vm.foodBySection = foodBySection.getSections();
