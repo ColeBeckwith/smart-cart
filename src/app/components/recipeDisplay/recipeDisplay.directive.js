@@ -19,7 +19,7 @@
     function recipeDisplayController() {
       var vm = this;
 
-      vm.closeRecipe = toggleRecipe.closeRecipe;
+      //vm.closeRecipe = toggleRecipe.closeRecipe;
 
     }
   }

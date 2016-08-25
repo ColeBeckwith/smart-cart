@@ -16,12 +16,6 @@
 
         return directive;
 
-        /**
-         * Everything the shoppingList directive needs should come from the controller below. If the data needs to
-         * come from another controller, service, et al. simply pass it as a parameter to the ShoppingListController
-         * @constructor
-         */
-
         function shoppingListController(foodBySection, cartIngredients) {
             var vm = this;
 

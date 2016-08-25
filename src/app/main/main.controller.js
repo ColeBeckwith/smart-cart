@@ -6,7 +6,7 @@
         .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, featuredMeals, foodBySection, cartIngredients, toggleRecipe) {
+  function MainController($timeout, featuredMeals, foodBySection, cartIngredients) {
     var vm = this;
 
     var newMealMode = false;
@@ -18,7 +18,8 @@
     vm.removeFromCart = removeFromCart;
     vm.addCustomMeal = addCustomMeal;
     vm.formatCustomIngredients = formatCustomIngredients;
-    vm.recipeOpenStatus = toggleRecipe.openStatus;
+    vm.newMealMode = newMealMode;
+    //vm.recipeOpenStatus = toggleRecipe.openStatus;
 
     activate();
 
