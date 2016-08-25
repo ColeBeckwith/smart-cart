@@ -1,8 +1,7 @@
 <h3>Shopping List</h3>
 <input ng-model="shoppingList.customIngredient" type="text" class="padded-input"/>
 <button class="rounded-button" ng-click="shoppingList.addCustomIngredient()">ADD ITEM</button>
-<p>{{ cartIngredients.ingredientList[0] }}</p>
-<p ng-show="cartIngredients.ingredientList.length === 0">Add Meals to Populate Shopping List</p>
+<p ng-show="shoppingList.ingredientList.length === 0">Add Meals to Populate Shopping List</p>
 
 <div class="dropdown" dropdown="">
   <button role="button"
@@ -20,7 +19,7 @@
 </div>
 
 <div class="ingredient-list">
-  <div ng-repeat="ingredient in cartIngredients.ingredientList | orderBy: ['added', shoppingList.sortBy]"
+  <div ng-repeat="ingredient in shoppingList.ingredientList | orderBy: ['added', shoppingList.sortBy]"
        ng-if="shoppingList.sortBy !== 'storeSection'">
     <!--TODO disable page jump when checkbox clicked.-->
       <p ng-class="{'faded-out' : ingredient.added}">
@@ -37,7 +36,7 @@
   <div ng-repeat="storeSection in shoppingList.foodBySection"
        ng-if="shoppingList.sortBy === 'storeSection'">
     <h5>{{ storeSection.category }}</h5>
-    <div ng-repeat="ingredient in cartIngredients.ingredientList | orderBy: ['added', 'name']">
+    <div ng-repeat="ingredient in shoppingList.ingredientList | orderBy: ['added', 'name']">
         <p ng-if="ingredient.storeSection === storeSection.category" ng-class="{'faded-out' : ingredient.added}">
           <input type="checkbox"
                  ng-model="ingredient.added"/>

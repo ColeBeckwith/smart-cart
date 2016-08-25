@@ -26,6 +26,7 @@
             var vm = this;
 
             vm.foodBySection = foodBySection.getSections();
+            vm.ingredientList = cartIngredients.ingredientList;
 
             var customIngredient = '';
             var sortOptions = [
@@ -51,14 +52,14 @@
             function addCustomIngredient() {
               console.log(cartIngredients.ingredientList);
               cartIngredients.ingredientList.push({
-                'name': customIngredient.replace(/\w\S*/g, function (txt) {
+                'name': vm.customIngredient.replace(/\w\S*/g, function (txt) {
                   return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
                 }),
                 'added': false,
                 'source': 'Manually Added',
-                'storeSection': 'Other'/*foodBySection.findStoreSection(vm.customIngredient)*/
+                'storeSection': foodBySection.findStoreSection(vm.customIngredient)
               });
-              customIngredient = '';
+              vm.customIngredient = '';
             }
             //TODO ingredients pushed in from this function have an empty 'name' field. Likely problem with customIngredient
 
