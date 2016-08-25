@@ -23,12 +23,12 @@
                 </div>
               </div>
               <div class="row">
-                <h4 class="text-center"
-                    ng-show="main.yourIngredients.length === 0">
+                <h5 class="text-center"
+                    ng-show="main.yourMeals.length === 0">
                   Click 'Create New Meal' to customize your own meals.
-                </h4>
+                </h5>
                 <div class="col-sm-6"
-                     ng-repeat="meal in main.yourIngredients">
+                     ng-repeat="meal in main.yourMeals">
                   <div class="thumbnail custom-thumbnail">
                     <div class="caption">
                       <div class="pin"
@@ -37,7 +37,7 @@
                         {{ meal.calories }} Calories
                       </div>
                       <h4>{{ meal.name }}</h4>
-                      <p>{{ meal.ingredients.join(', ') + '.' }}</p>
+                      <p>{{ meal.addedIngredients.join(', ') + '.' }}</p>
                       <div class="row text-center">
                         <button class="rounded-button"
                                 ng-show="!meal.added"

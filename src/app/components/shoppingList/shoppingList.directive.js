@@ -22,7 +22,7 @@
          * @constructor
          */
 
-        function shoppingListController(foodBySection) {
+        function shoppingListController(foodBySection, cartIngredients) {
             var vm = this;
 
             vm.foodBySection = foodBySection.getSections();
@@ -49,17 +49,18 @@
             vm.customIngredient = customIngredient;
 
             function addCustomIngredient() {
-              main.ingredients.push({
-                'name': vm.customIngredient.replace(/\w\S*/g, function (txt) {
+              console.log(cartIngredients.ingredientList);
+              cartIngredients.ingredientList.push({
+                'name': customIngredient.replace(/\w\S*/g, function (txt) {
                   return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
                 }),
                 'added': false,
                 'source': 'Manually Added',
-                'storeSection': foodBySection.findStoreSection(vm.customIngredient)
+                'storeSection': 'Other'/*foodBySection.findStoreSection(vm.customIngredient)*/
               });
-              vm.customIngredient = '';
+              customIngredient = '';
             }
-            //TODO Can't push ingredient into array from the main controller. Thinking that main.ingredients belongs in a service?
+            //TODO ingredients pushed in from this function have an empty 'name' field. Likely problem with customIngredient
 
         }
     }

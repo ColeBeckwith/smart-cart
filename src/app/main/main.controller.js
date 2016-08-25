@@ -6,15 +6,14 @@
         .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, featuredMeals, foodBySection) {
+  function MainController($timeout, featuredMeals, foodBySection, cartIngredients) {
     var vm = this;
 
     var newMealMode = false;
 
-    vm.yourIngredients = [];
     vm.yourMeals = [];
-    vm.ingredients = [];
-    //TODO These need to be named better, as I have no idea which is which.
+    vm.addedMeals = [];
+    // vm.cartIngredients = [];
     vm.classAnimation = '';
     vm.addToCart = addToCart;
     vm.removeFromCart = removeFromCart;
@@ -50,12 +49,12 @@
       }
 
       meal.added = !meal.added;
-      vm.yourMeals.push({
+      vm.addedMeals.push({
         'name' : meal.name
       });
 
-      for ( var i = 0; i < meal.ingredients.length; i++ ) {
-        vm.ingredients.push({
+      for (var i = 0; i < meal.ingredients.length; i++ ) {
+        cartIngredients.ingredientList.push({
           'name': meal.ingredients[i],
           'added': false,
           'source': meal.name,
@@ -71,28 +70,27 @@
 
       meal.added = !meal.added;
 
-      for (var i = 0; i < vm.yourMeals.length; i++) {
-        if (vm.yourMeals[i].name === meal.name) {
-          vm.yourMeals.splice(i, 1);
+      for (var i = 0; i < vm.addedMeals.length; i++) {
+        if (vm.addedMeals[i].name === meal.name) {
+          vm.addedMeals.splice(i, 1);
           i--;
         }
       }
 
-      for (var i = 0; i < vm.ingredients.length; i++) {
-        if (meal.name === vm.ingredients[i].source) {
-          vm.ingredients.splice(i, 1);
+      for (var i = 0; i < cartIngredients.ingredientList.length; i++) {
+        if (meal.name === cartIngredients.ingredientList[i].source) {
+          cartIngredients.ingredientList.splice(i, 1);
           i--;
-          //alternative is to have vm.ingredients.splice(i, meal.ingredients.length).
         }
       }
     }
 
     function addCustomMeal() {
-      vm.yourIngredients.push({
+      vm.yourMeals.push({
         'name': vm.customMealName.replace(/\w\S*/g, function (match) {
           return match.charAt(0).toUpperCase() + match.substr(1).toLowerCase()
         }),
-        'ingredients': formatCustomIngredients(vm.customMealIngredients),
+        "ingredients": formatCustomIngredients(vm.customMealIngredients),
         'calories': vm.customMealCalories,
         'added': false
       });
