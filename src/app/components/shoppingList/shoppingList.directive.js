@@ -5,7 +5,9 @@
         .module('coleTraining')
         .directive('shoppingList', shoppingList);
 
-    function shoppingList() {
+    shoppingList.$inject = ["foodBySection", "cartIngredients"];
+
+    function shoppingList(foodBySection, cartIngredients) {
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/shoppingList/shoppingList.html',
@@ -16,9 +18,9 @@
 
         return directive;
 
-        function shoppingListController(/*foodBySection, cartIngredients*/) {
+        shoppingListController.$inject = ["foodBySection", "cartIngredients"];
 
-            shoppingListController.$inject = ["foodBySection", "cartIngredients"];
+        function shoppingListController(foodBySection, cartIngredients) {
 
             var vm = this;
 

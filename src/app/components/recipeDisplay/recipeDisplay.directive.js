@@ -16,10 +16,16 @@
 
     return directive;
 
-    function recipeDisplayController() {
+    recipeDisplayController.$inject = ['toggleRecipeService'];
+
+    function recipeDisplayController(toggleRecipeService) {
       var vm = this;
 
-      //vm.closeRecipe = toggleRecipe.closeRecipe;
+      vm.toggleSomeShit = toggleSomeShit;
+
+      function toggleSomeShit() {
+        toggleRecipeService.openRecipe();
+      }
 
     }
   }

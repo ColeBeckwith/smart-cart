@@ -3,9 +3,9 @@
 
   angular
     .module('coleTraining')
-    .service('toggleRecipe', toggleRecipe);
+    .service('toggleRecipeService', toggleRecipeService);
 
-  function toggleRecipe() {
+  function toggleRecipeService() {
 
     var vm = this;
 

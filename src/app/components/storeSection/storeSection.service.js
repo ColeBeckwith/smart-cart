@@ -5,8 +5,8 @@
     .module('coleTraining')
     .service('storeSection', storeSection);
 
-  /** @ngInject */
   function storeSection() {
+    var vm = this;
     var foodBySection = [
       {
         'category' : 'Fruits',
@@ -42,7 +42,7 @@
       }
     ];
 
-    this.getSections = getSections;
+    vm.getSections = getSections;
 
     function getSections() {
       return foodBySection;

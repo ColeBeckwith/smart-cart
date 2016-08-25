@@ -9,7 +9,7 @@
 
     var vm = this;
 
-    vm.ingredientList = []
+    vm.ingredientList = [];
 
   }
 })();
