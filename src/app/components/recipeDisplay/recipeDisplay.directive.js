@@ -1,6 +1,3 @@
-/**
- * Created by CBeckwith411 on 8/24/16.
- */
 (function () {
   'use strict';
 
@@ -8,10 +5,10 @@
     .module('coleTraining')
     .directive('recipeDisplay', recipeDisplay);
 
-  function mealList() {
+  function recipeDisplay() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/mealList/recipeDisplay.html',
+      templateUrl: 'app/components/recipeDisplay/recipeDisplay.html',
       controller: recipeDisplayController,
       controllerAs: 'recipeDisplay',
       bindToController: true
@@ -22,10 +19,8 @@
     function recipeDisplayController() {
       var vm = this;
 
-      vm.openRecipe = function() {
-        alert('Working');
-      }
+      vm.closeRecipe = toggleRecipe.closeRecipe;
+
     }
   }
-
 })();

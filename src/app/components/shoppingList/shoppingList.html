@@ -29,6 +29,11 @@
                             <span class="ingredient-source">
                                 - {{ ingredient.source }}
                             </span>
+                            <span ng-if="ingredient.source === 'Manually Added'"
+                                  class="remove-text">
+                                   &nbsp; <a ng-click="shoppingList.removeCustomIngredient(ingredient)">Remove</a>
+                            </span>
+
 
       </p>
   </div>

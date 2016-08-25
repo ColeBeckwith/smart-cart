@@ -16,8 +16,9 @@
 
     return directive;
 
-    function mealListController() {
+    function mealListController(toggleRecipe) {
       var vm = this;
+
     }
   }
 

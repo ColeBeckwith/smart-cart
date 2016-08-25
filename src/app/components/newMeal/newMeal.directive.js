@@ -18,6 +18,7 @@
 
     function NewMealController() {
       var vm = this;
+      
     }
   }
 })();

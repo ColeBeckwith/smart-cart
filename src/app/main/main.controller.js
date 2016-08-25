@@ -6,7 +6,7 @@
         .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, featuredMeals, foodBySection, cartIngredients) {
+  function MainController($timeout, featuredMeals, foodBySection, cartIngredients, toggleRecipe) {
     var vm = this;
 
     var newMealMode = false;
@@ -18,6 +18,7 @@
     vm.removeFromCart = removeFromCart;
     vm.addCustomMeal = addCustomMeal;
     vm.formatCustomIngredients = formatCustomIngredients;
+    vm.recipeOpenStatus = toggleRecipe.openStatus;
 
     activate();
 
@@ -48,9 +49,8 @@
       }
 
       meal.added = !meal.added;
-      vm.addedMeals.push({
-        'name' : meal.name
-      });
+
+      vm.addedMeals.push(meal);
 
       for (var i = 0; i < meal.ingredients.length; i++ ) {
         cartIngredients.ingredientList.push({

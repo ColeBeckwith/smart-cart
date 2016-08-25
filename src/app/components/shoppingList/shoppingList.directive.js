@@ -62,7 +62,7 @@
             }
 
             function removeCustomIngredient(ingredient) {
-              cartIngredients.ingredientList.splice(cartIngredients.ingredientList.indexOf(ingredient, 1));
+              cartIngredients.ingredientList.splice(cartIngredients.ingredientList.indexOf(ingredient), 1);
             }
         }
     }
