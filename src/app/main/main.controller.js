@@ -13,11 +13,11 @@
 
     vm.yourIngredients = [];
     vm.yourMeals = [];
-    vm.classAnimation = '';
     vm.ingredients = [];
+    //TODO These need to be named better, as I have no idea which is which.
+    vm.classAnimation = '';
     vm.addToCart = addToCart;
     vm.removeFromCart = removeFromCart;
-    vm.newMealMode = newMealMode;
     vm.addCustomMeal = addCustomMeal;
     vm.formatCustomIngredients = formatCustomIngredients;
 
