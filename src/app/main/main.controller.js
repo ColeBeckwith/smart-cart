@@ -13,7 +13,6 @@
 
     vm.yourMeals = [];
     vm.addedMeals = [];
-    // vm.cartIngredients = [];
     vm.classAnimation = '';
     vm.addToCart = addToCart;
     vm.removeFromCart = removeFromCart;

@@ -28,7 +28,7 @@
             vm.foodBySection = foodBySection.getSections();
             vm.ingredientList = cartIngredients.ingredientList;
 
-            var customIngredient = '';
+            vm.customIngredient = '';
             var sortOptions = [
               {
                 'displayText': 'Alphabetical',
@@ -47,10 +47,9 @@
             vm.sortOptions = sortOptions;
             vm.sortBy = 'storeSection';
             vm.addCustomIngredient = addCustomIngredient;
-            vm.customIngredient = customIngredient;
+            vm.removeCustomIngredient = removeCustomIngredient;
 
             function addCustomIngredient() {
-              console.log(cartIngredients.ingredientList);
               cartIngredients.ingredientList.push({
                 'name': vm.customIngredient.replace(/\w\S*/g, function (txt) {
                   return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
@@ -61,8 +60,10 @@
               });
               vm.customIngredient = '';
             }
-            //TODO ingredients pushed in from this function have an empty 'name' field. Likely problem with customIngredient
 
+            function removeCustomIngredient(ingredient) {
+              cartIngredients.ingredientList.splice(cartIngredients.ingredientList.indexOf(ingredient, 1));
+            }
         }
     }
 })();
