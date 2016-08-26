@@ -26,6 +26,7 @@
             vm.ingredientList = cartIngredients.ingredientList;
 
             vm.customIngredient = '';
+          
             var sortOptions = [
               {
                 'displayText': 'Alphabetical',

@@ -15,8 +15,7 @@
         vm.classAnimation = '';
         vm.addToCart = addToCart;
         vm.removeFromCart = removeFromCart;
-
-
+      
         activate();
 
         function activate() {

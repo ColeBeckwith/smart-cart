@@ -5,6 +5,8 @@
     .module('coleTraining')
     .directive('recipeDisplay', recipeDisplay);
 
+  recipeDisplayController.$inject = ['toggleRecipeService'];
+
   function recipeDisplay() {
     var directive = {
       restrict: 'E',
@@ -15,8 +17,6 @@
     };
 
     return directive;
-
-    recipeDisplayController.$inject = ['toggleRecipeService'];
 
     function recipeDisplayController(toggleRecipeService) {
       var vm = this;

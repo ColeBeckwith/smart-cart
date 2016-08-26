@@ -4,6 +4,8 @@
   angular
     .module('coleTraining')
     .directive('mealList', mealList);
+  
+  mealList.$inject = ["cartMealsService"];
 
   function mealList() {
     var directive = {

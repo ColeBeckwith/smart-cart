@@ -5,6 +5,9 @@
     .module('coleTraining')
     .directive('newMeal', newMeal);
 
+
+  newMeal.$inject = ["cartMealsService"];
+
   function newMeal() {
     var directive = {
       restrict: 'E',
@@ -16,15 +19,15 @@
 
     return directive;
 
-    function NewMealController() {
+    function NewMealController(cartMealsService) {
       var vm = this;
-      
+
       var newMealMode = false;
 
       vm.addCustomMeal = addCustomMeal;
       vm.formatCustomIngredients = formatCustomIngredients;
       vm.newMealMode = newMealMode;
-      
+
 
       clearCustomFields();
 
@@ -36,8 +39,7 @@
       }
 
       function addCustomMeal() {
-        vm.yourMeals.push({
-          //TODO no longer vm.yourMeals. Needs to be moved to service.
+        cartMealsService.customMeals.push({
           'name': vm.customMealName.replace(/\w\S*/g, function (match) {
             return match.charAt(0).toUpperCase() + match.substr(1).toLowerCase()
           }),
@@ -45,6 +47,7 @@
           'calories': vm.customMealCalories,
           'added': false
         });
+        console.log(cartMealsService.customMeals);
         clearCustomFields();
       }
 
@@ -57,8 +60,8 @@
         }
         return arr;
       }
-      
-      
+
+
     }
   }
 })();
