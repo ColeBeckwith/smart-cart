@@ -16,8 +16,10 @@
             bindToController: true
         };
 
-        return directive;
+        shoppingListController.$inject = ["foodBySection", "cartIngredients"];
 
+        return directive;
+      
         shoppingListController.$inject = ["foodBySection", "cartIngredients"];
 
         function shoppingListController(foodBySection, cartIngredients) {

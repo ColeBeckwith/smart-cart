@@ -6,9 +6,6 @@
                     <smart-cart-nav></smart-cart-nav>
                 </div>
                 <div class="jumbotron text-center">
-                  <!--<div class="jumbotron-image">
-                    <img ng-src="../assets/images/jumbotron-picture.png"/>
-                  </div>-->
                   <h1>SmartCart</h1>
                   <p class="lead">
                     Save Time. Waste Less. Eat Better.
@@ -19,7 +16,7 @@
                   <h3>Your Meals</h3>
                 </div>
                 <div class="col-sm-6">
-                  <button class="rounded-button" ng-click="main.newMealMode = true">CREATE NEW MEAL</button>
+                  <button class="rounded-button" ng-click="newMeal.newMealMode = true">CREATE NEW MEAL</button>
                 </div>
               </div>
               <div class="row">
@@ -105,7 +102,7 @@
   <meal-list ng-if="listSelector.activeTab === 'meals'"></meal-list>
 </div>
 
-<new-meal ng-if="main.newMealMode"></new-meal>
+<new-meal ng-if="newMeal.newMealMode"></new-meal>
 
 <!--<recipe-display ng-if="main.recipeOpenStatus"></recipe-display>-->
 
