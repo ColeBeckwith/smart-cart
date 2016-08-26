@@ -4,22 +4,16 @@
   angular
     .module('coleTraining')
     .service('toggleRecipeService', toggleRecipeService);
-
+  
   function toggleRecipeService() {
-
     var vm = this;
-
+    
     vm.openStatus = false;
 
-    vm.openRecipe = openRecipe;
-    vm.closeRecipe = closeRecipe;
+    vm.toggleRecipeOpen = toggleRecipeOpen;
 
-    function openRecipe() {
-      vm.openStatus = true;
-    }
-
-    function closeRecipe() {
-      vm.openStatus = false;
+    function toggleRecipeOpen() {
+      vm.openStatus = !vm.openStatus;
     }
   }
 })();
