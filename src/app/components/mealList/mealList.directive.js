@@ -18,6 +18,8 @@
 
     function mealListController() {
       var vm = this;
+
+
     }
   }
 

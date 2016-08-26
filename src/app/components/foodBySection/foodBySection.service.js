@@ -50,6 +50,7 @@
         vm.findStoreSection = findStoreSection;
 
         function findStoreSection(ingredient) {
+            console.log("findStoreSelection was invoked!");
             for ( var i = 0; i < foodSections.length; i++ ) {
                 if ( foodSections[i].foodInCategory.indexOf(ingredient.toLowerCase()) !== -1 ) {
                     return foodSections[i].category
@@ -59,6 +60,7 @@
         }
 
         function getSections() {
+            console.log("getSections was invoked!");
             return foodSections;
         }
     }
