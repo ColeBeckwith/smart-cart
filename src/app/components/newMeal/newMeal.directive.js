@@ -7,7 +7,7 @@
 
   newMeal.$inject = ["cartMealsService"];
 
-  function newMeal() {
+  function newMeal(cartMealsService) {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/newMeal/newMeal.html',
@@ -18,7 +18,7 @@
 
     return directive;
 
-    function newMealController(cartMealsService) {
+    function newMealController() {
       var vm = this;
 
       var newMealMode = false;

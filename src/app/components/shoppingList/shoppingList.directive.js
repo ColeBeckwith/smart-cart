@@ -7,7 +7,7 @@
 
     shoppingList.$inject = ["foodBySection", "mealMoverService"];
 
-    function shoppingList() {
+    function shoppingList(foodBySection, mealMoverService) {
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/shoppingList/shoppingList.html',
@@ -18,7 +18,7 @@
 
         return directive;
 
-        function shoppingListController(foodBySection, mealMoverService) {
+        function shoppingListController() {
 
             var vm = this;
 

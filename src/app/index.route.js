@@ -4,6 +4,8 @@
     angular
         .module('coleTraining')
         .config(routerConfig);
+  
+    routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function routerConfig($stateProvider, $urlRouterProvider) {
         $stateProvider

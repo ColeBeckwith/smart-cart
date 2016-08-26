@@ -7,10 +7,10 @@
   angular
     .module('coleTraining')
     .directive('mealPageDisplay', mealPageDisplay);
-
+  
   mealPageDisplay.$inject = ["cartMealsService", "mealMoverService", "featuredMeals"];
 
-  function mealPageDisplay() {
+  function mealPageDisplay(cartMealsService, mealMoverService, featuredMeals) {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/mealDisplays/mealPageDisplay.html',
@@ -21,7 +21,7 @@
 
     return directive;
 
-    function mealPageDisplayController(cartMealsService, mealMoverService, featuredMeals) {
+    function mealPageDisplayController() {
 
       var vm = this;
 
