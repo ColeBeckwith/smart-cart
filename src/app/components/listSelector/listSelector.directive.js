@@ -18,6 +18,7 @@
 
         function listSelectorController() {
             var vm = this;
+          
             vm.activeTab = 'ingredients';
         }
     }

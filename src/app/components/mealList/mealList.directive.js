@@ -4,8 +4,8 @@
   angular
     .module('coleTraining')
     .directive('mealList', mealList);
-  
-  mealList.$inject = ["cartMealsService"];
+
+  mealList.$inject = ["mealMoverService"];
 
   function mealList() {
     var directive = {
@@ -18,10 +18,10 @@
 
     return directive;
 
-    function mealListController() {
+    function mealListController(mealMoverService) {
       var vm = this;
 
-
+      vm.addedMeals = mealMoverService.addedMeals;
     }
   }
 

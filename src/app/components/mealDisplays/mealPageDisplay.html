@@ -1,0 +1,72 @@
+<div class="row vertical-center">
+  <div class="col-sm-4">
+    <h3>Your Meals</h3>
+  </div>
+  <div class="col-sm-6">
+    <button class="rounded-button" ng-click="newMeal.newMealMode = true">CREATE NEW MEAL</button>
+  </div>
+</div>
+<div class="row">
+  <h5 class="text-center"
+      ng-show="mealPageDisplay.customMeals.length === 0">
+    Click 'Create New Meal' to customize your own meals.
+  </h5>
+  <div class="col-sm-6"
+       ng-repeat="meal in mealPageDisplay.customMeals">
+    <div class="thumbnail custom-thumbnail">
+      <div class="caption">
+        <div class="pin"
+             ng-class="{'red-pin': (meal.calories >= 1000), 'orange-pin': (meal.calories >= 500 && meal.calories < 1000), 'green-pin': (meal.calories < 500)}"
+             ng-show="meal.calories">
+          {{ meal.calories }} Calories
+        </div>
+        <h4>{{ meal.name }}</h4>
+        <p>{{ meal.ingredients.join(', ') + '.' }}</p>
+        <div class="row text-center">
+          <button class="rounded-button"
+                  ng-show="!meal.added"
+                  ng-click="mealPageDisplay.addToCart(meal)">
+            ADD TO CART
+          </button>
+          <button class="rounded-button red-button"
+                  ng-show="meal.added"
+                  ng-click="mealPageDisplay.removeFromCart(meal)">
+            REMOVE FROM CART
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3>Featured Meals</h3>
+<div class="row">
+  <div class="col-sm-6"
+       ng-repeat="meal in mealPageDisplay.meals | orderBy:'rank'">
+    <div class="thumbnail">
+      <div class="caption">
+        <div class="pin"
+             ng-class="{'red-pin': (meal.calories >= 1000), 'orange-pin': (meal.calories >= 500 && meal.calories < 1000), 'green-pin': (meal.calories < 500)}"
+             ng-show="meal.calories">
+          {{ meal.calories }} Calories
+          <!--TODO Calories font is too small, but when enlarged, it enlarges the pin as well-->
+        </div>
+        <h4>{{ meal.name }}</h4>
+        <div class="row text-center">
+          <button class="rounded-button"
+                  ng-show="!meal.added"
+                  ng-click="mealPageDisplay.addToCart(meal)">
+            ADD TO CART
+          </button>
+          <button class="rounded-button red-button"
+                  ng-show="meal.added"
+                  ng-click="mealPageDisplay.removeFromCart(meal)">
+            REMOVE FROM CART
+          </button>
+        </div>
+      </div>
+      <div class="image-container">
+        <img ng-src="assets/images/{{ meal.image }}"/>
+      </div>
+    </div>
+  </div>
+</div>

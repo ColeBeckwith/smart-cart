@@ -5,21 +5,20 @@
     .module('coleTraining')
     .directive('newMeal', newMeal);
 
-
   newMeal.$inject = ["cartMealsService"];
 
   function newMeal() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/newMeal/newMeal.html',
-      controller: NewMealController,
+      controller: newMealController,
       controllerAs: 'newMeal',
       bindToController: true
     };
 
     return directive;
 
-    function NewMealController(cartMealsService) {
+    function newMealController(cartMealsService) {
       var vm = this;
 
       var newMealMode = false;
@@ -47,7 +46,6 @@
           'calories': vm.customMealCalories,
           'added': false
         });
-        console.log(cartMealsService.customMeals);
         clearCustomFields();
       }
 

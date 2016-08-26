@@ -17,7 +17,7 @@
         return directive;
 
         function NavbarController() {
-            var vm = this;
+          
         }
     }
 

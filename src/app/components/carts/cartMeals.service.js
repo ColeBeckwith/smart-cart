@@ -8,8 +8,13 @@
   function cartMealsService() {
 
     var vm = this;
+    vm.getCustomMeals = getCustomMeals;
 
     vm.customMeals = [];
+
+    function getCustomMeals() {
+      return vm.customMeals;
+    }
 
   }
 })();

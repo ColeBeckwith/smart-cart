@@ -5,9 +5,9 @@
         .module('coleTraining')
         .directive('shoppingList', shoppingList);
 
-    shoppingList.$inject = ["foodBySection", "cartIngredients"];
+    shoppingList.$inject = ["foodBySection", "mealMoverService"];
 
-    function shoppingList(foodBySection, cartIngredients) {
+    function shoppingList() {
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/shoppingList/shoppingList.html',
@@ -18,16 +18,16 @@
 
         return directive;
 
-        function shoppingListController() {
+        function shoppingListController(foodBySection, mealMoverService) {
 
             var vm = this;
 
             vm.foodBySection = foodBySection.getSections();
-            vm.ingredientList = cartIngredients.ingredientList;
+            vm.ingredientList = mealMoverService.ingredientList;
 
             vm.customIngredient = '';
-          
-            var sortOptions = [
+
+            vm.sortOptions = [
               {
                 'displayText': 'Alphabetical',
                 'sortByString': 'name'
@@ -42,13 +42,10 @@
               }
             ];
 
-            vm.sortOptions = sortOptions;
             vm.sortBy = 'storeSection';
-            vm.addCustomIngredient = addCustomIngredient;
-            vm.removeCustomIngredient = removeCustomIngredient;
 
-            function addCustomIngredient() {
-              cartIngredients.ingredientList.push({
+            vm.addCustomIngredient = function() {
+              mealMoverService.ingredientList.push({
                 'name': vm.customIngredient.replace(/\w\S*/g, function (txt) {
                   return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
                 }),
@@ -57,10 +54,10 @@
                 'storeSection': foodBySection.findStoreSection(vm.customIngredient)
               });
               vm.customIngredient = '';
-            }
+            };
 
-            function removeCustomIngredient(ingredient) {
-              cartIngredients.ingredientList.splice(cartIngredients.ingredientList.indexOf(ingredient), 1);
+            vm.removeCustomIngredient = function(ingredient) {
+              mealMoverService.ingredientList.splice(mealMoverService.ingredientList.indexOf(ingredient), 1);
             }
         }
     }
