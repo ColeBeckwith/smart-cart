@@ -46,19 +46,16 @@
             }
         ];
 
-        vm.getSections = getSections;
-        vm.findStoreSection = findStoreSection;
-
-        function findStoreSection(ingredient) {
+        vm.findStoreSection = function(ingredient) {
             for ( var i = 0; i < foodSections.length; i++ ) {
                 if ( foodSections[i].foodInCategory.indexOf(ingredient.toLowerCase()) !== -1 ) {
                     return foodSections[i].category
                 }
             }
             return 'Other';
-        }
+        };
 
-        function getSections() {
+        vm.getSections = function() {
             return foodSections;
         }
     }
