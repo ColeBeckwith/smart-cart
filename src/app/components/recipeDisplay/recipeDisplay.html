@@ -1,0 +1,20 @@
+<div ng-if="recipeDisplay.recipeDisplayMode === true" class="pop-up-window">
+  <div class="remove-x-button" ng-click="recipeDisplay.recipeDisplayMode = false">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  </div>
+  <div class="overflow-scroll">
+    <h3 class="text-center">{{ recipeDisplay.activeRecipe.name }}</h3>
+    <div ng-if="recipeDisplay.activeRecipe.hasOwnProperty('image')" class="image-container">
+      <img ng-src="/assets/images/{{ recipeDisplay.activeRecipe.image }}"/>
+    </div>
+    <h5>Ingredients</h5>
+    <div ng-repeat="ingredient in recipeDisplay.activeRecipe.ingredients">
+      <p>
+        <input type="checkbox"/>
+        {{ ingredient }}
+      </p>
+    </div>
+    <h5 ng-if="recipeDisplay.activeRecipe.recipe !== '''">Cooking Instructions</h5>
+    <p>{{ recipeDisplay.activeRecipe.recipe }}</p>
+  </div>
+</div>

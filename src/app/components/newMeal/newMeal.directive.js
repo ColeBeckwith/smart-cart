@@ -21,35 +21,30 @@
     function newMealController() {
       var vm = this;
 
-      var newMealMode = false;
-
-      vm.addCustomMeal = addCustomMeal;
-      vm.formatCustomIngredients = formatCustomIngredients;
-      vm.newMealMode = newMealMode;
-
-
       clearCustomFields();
 
       function clearCustomFields() {
         vm.customMealCalories = 0;
         vm.customMealIngredients = '';
         vm.customMealName = '';
+        vm.customMealRecipe = '';
         vm.newMealMode = false;
       }
 
-      function addCustomMeal() {
+      vm.addCustomMeal = function() {
         cartMealsService.customMeals.push({
           'name': vm.customMealName.replace(/\w\S*/g, function (match) {
             return match.charAt(0).toUpperCase() + match.substr(1).toLowerCase()
           }),
-          "ingredients": formatCustomIngredients(vm.customMealIngredients),
+          "ingredients": vm.formatCustomIngredients(vm.customMealIngredients),
           'calories': vm.customMealCalories,
-          'added': false
+          'added': false,
+          'recipe': vm.customMealRecipe
         });
         clearCustomFields();
-      }
+      };
 
-      function formatCustomIngredients(str) {
+      vm.formatCustomIngredients = function(str) {
         var arr = str.replace(/,\s*$/, "").split(", ");
         for ( var i = 0; i < arr.length; i++ ) {
           arr[i] = arr[i].replace(/\w\S*/g, function (match) {

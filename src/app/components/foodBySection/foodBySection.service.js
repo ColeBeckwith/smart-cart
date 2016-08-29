@@ -22,7 +22,7 @@
             },
             {
                 'category': 'Meats',
-                'foodInCategory': ['chicken', 'beef', 'lamb', 'lamb meat', 'turkey', 'ham', 'salmon', 'shrimp', 'sausage', 'canadian bacon', 'bison']
+                'foodInCategory': ['chicken', 'beef', 'lamb', 'lamb meat', 'turkey', 'ham', 'salmon', 'shrimp', 'lobster', 'crab', 'sausage', 'canadian bacon', 'bison']
             },
             {
                 'category': 'Dairy',
