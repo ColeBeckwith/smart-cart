@@ -239,6 +239,41 @@ input[type=text] {
 
 textarea {
   padding: 2px 8px !important;
+  max-width: 95%;
+}
+
+.fixed-to-bottom {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0 !important;
+}
+
+.bottom-cart-open {
+  height: 100%;
+}
+
+.bottom-btn {
+  margin-bottom: 5px !important;
+  background-color: $scGreen;
+  color: white;
+
+  &:hover {
+    background-color: #A5D6A7;
+  }
+
+  &:focus {
+    background-color: #A5D6A7;
+  }
+}
+
+.overflow-bottom {
+  position: relative;
+  overflow: scroll;
+  height: 95%;
+}
+
+#element::-webkit-scrollbar {
+  display: none;
 }
 
 /**

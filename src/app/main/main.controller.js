@@ -8,5 +8,6 @@
     function MainController() {
       var vm = this;
       
+      vm.toggleBottomMenu = false;
     }
 })();
