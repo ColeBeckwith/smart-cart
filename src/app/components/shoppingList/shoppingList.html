@@ -22,10 +22,11 @@
   <div ng-repeat="ingredient in shoppingList.ingredientList | orderBy: ['added', shoppingList.sortBy]"
        ng-if="shoppingList.sortBy !== 'storeSection'">
     <!--TODO disable page jump when checkbox clicked.-->
-      <p ng-class="{'faded-out' : ingredient.added}">
+      <span ng-class="{'faded-out' : ingredient.added}">
         <input type="checkbox"
-               ng-model="ingredient.added"/>
-        {{ ingredient.name }}
+               ng-model="ingredient.added"
+               id="{{ $id }}"/>
+        <label for="{{ $id }}">{{ ingredient.name }}</label>
                             <span class="ingredient-source">
                                 - {{ ingredient.source }}
                             </span>
@@ -35,17 +36,18 @@
                             </span>
 
 
-      </p>
+      </span>
   </div>
 
   <div ng-repeat="storeSection in shoppingList.foodBySection"
        ng-if="shoppingList.sortBy === 'storeSection'">
     <h5>{{ storeSection.category }}</h5>
     <div ng-repeat="ingredient in shoppingList.ingredientList | orderBy: ['added', 'name'] | filter: storeSection.category">
-        <p ng-class="{'faded-out' : ingredient.added}">
+        <span ng-class="{'faded-out' : ingredient.added}">
           <input type="checkbox"
-                 ng-model="ingredient.added"/>
-          {{ ingredient.name }}
+                 ng-model="ingredient.added"
+                 id="{{ $id }}"/>
+          <label for="{{ $id }}">{{ ingredient.name }}</label>
                                 <span class="ingredient-source">
                                     - {{ ingredient.source }}
                                 </span>
@@ -53,7 +55,7 @@
                                       class="remove-text">
                                    &nbsp; <a ng-click="shoppingList.removeCustomIngredient(ingredient)">Remove</a>
                                 </span>
-        </p>
+        </span>
     </div>
   </div>
 </div>
