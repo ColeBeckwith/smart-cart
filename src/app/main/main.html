@@ -28,8 +28,10 @@
 <div class="hidden-lg hidden-md well bottom-list fixed-to-bottom" ng-class="{'bottom-cart-open' : main.toggleBottomMenu}">
   <div class="row">
     <div class="text-center">
-      <button class="btn bottom-btn" ng-click="main.toggleBottomMenu = !main.toggleBottomMenu">Toggle
-        Cart</button>
+      <button class="btn bottom-btn" ng-click="main.toggleBottomMenu = !main.toggleBottomMenu">
+        <span ng-if="main.toggleBottomMenu === false">Open Cart</span>
+        <span ng-if="main.toggleBottomMenu === true">Close Cart</span>
+      </button>
     </div>
   </div>
   <div class="overflow-bottom" ng-if="main.toggleBottomMenu">

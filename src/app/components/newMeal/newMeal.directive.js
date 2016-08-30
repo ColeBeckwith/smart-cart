@@ -29,19 +29,35 @@
         vm.customMealName = '';
         vm.customMealRecipe = '';
         vm.newMealMode = false;
+        vm.errorMessage = '';
+      }
+
+      function validateCustomFields() {
+        if (vm.customMealName === '') {
+          vm.errorMessage = 'Enter Meal Name';
+          return false;
+        } else if (vm.customMealIngredients === '') {
+          vm.errorMessage = 'Enter Ingredients';
+          return false;
+        } else {
+          return true;
+        }
       }
 
       vm.addCustomMeal = function() {
-        cartMealsService.customMeals.push({
-          'name': vm.customMealName.replace(/\w\S*/g, function (match) {
-            return match.charAt(0).toUpperCase() + match.substr(1).toLowerCase()
-          }),
-          "ingredients": vm.formatCustomIngredients(vm.customMealIngredients),
-          'calories': vm.customMealCalories,
-          'added': false,
-          'recipe': vm.customMealRecipe
-        });
-        clearCustomFields();
+        vm.errorMessage = '';
+        if (validateCustomFields()) {
+          cartMealsService.customMeals.push({
+            'name': vm.customMealName.replace(/\w\S*/g, function (match) {
+              return match.charAt(0).toUpperCase() + match.substr(1).toLowerCase()
+            }),
+            "ingredients": vm.formatCustomIngredients(vm.customMealIngredients),
+            'calories': vm.customMealCalories,
+            'added': false,
+            'recipe': vm.customMealRecipe
+          });
+          clearCustomFields();
+        }
       };
 
       vm.formatCustomIngredients = function(str) {

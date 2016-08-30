@@ -20,6 +20,7 @@
           <input type="text" name="mealingredients" ng-model="newMeal.customMealIngredients">
           <h4>Cooking Instructions:</h4>
           <textarea rows="10" ng-model="newMeal.customMealRecipe"></textarea>
+          <p class="text-center error-text">{{ newMeal.errorMessage }}</p>
           <div class="row text-center">
             <button class="rounded-button" ng-click="newMeal.addCustomMeal()">ADD MEAL</button>
           </div>

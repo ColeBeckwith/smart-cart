@@ -90,7 +90,7 @@ h1 {
   padding: 1em;
   color: white;
   border: 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 0 0;
 
   &:hover {
     background: #77B986;
@@ -158,9 +158,9 @@ h1 {
 }
 
 .vertical-center {
-  display: flex;
-  align-items: center;
-  //TODO This is not working.
+  display: inline-block;
+  vertical-align: middle;
+  float: none !important;
 }
 
 .padded-input {
@@ -230,6 +230,21 @@ h1 {
 .remove-text {
   color: $scRed;
   font-size: 90%;
+
+  a {
+    color: $scRed;
+
+    &:hover {
+      color: #F5A69E;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+}
+
+.error-text {
+  color: $scRed;
+  font-size: 1.3em;
 }
 
 input[type=text] {
