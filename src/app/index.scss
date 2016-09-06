@@ -247,6 +247,10 @@ input[type=text] {
 //  TODO this doesn't work without the important tag. Not sure what it's overriding, but it seems better to not use it.
 }
 
+input[type=checkbox] {
+  padding-right: 1px !important;
+}
+
 textarea {
   padding: 2px 8px !important;
   max-width: 95%;

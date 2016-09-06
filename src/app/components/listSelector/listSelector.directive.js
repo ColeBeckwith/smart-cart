@@ -5,7 +5,9 @@
         .module('coleTraining')
         .directive('listSelector', listSelector);
 
-    function listSelector() {
+    listSelector.$inject = ["mealMoverService"];
+
+    function listSelector(mealMoverService) {
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/listSelector/listSelector.html',
@@ -18,8 +20,9 @@
 
         function listSelectorController() {
             var vm = this;
-          
+
             vm.activeTab = 'ingredients';
+            vm.addedMeals = mealMoverService.addedMeals;
         }
     }
 })();

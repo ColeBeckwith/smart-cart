@@ -23,10 +23,9 @@
        ng-if="shoppingList.sortBy !== 'storeSection'">
     <!--TODO disable page jump when checkbox clicked.-->
       <span ng-class="{'faded-out' : ingredient.added}">
-        <input type="checkbox"
-               ng-model="ingredient.added"
-               id="{{ $id }}"/>
-        <label for="{{ $id }}">{{ ingredient.name }}</label>
+        <label>
+        <input type="checkbox" ng-model="ingredient.added"/>
+        {{ ingredient.name }}</label>
                             <span class="ingredient-source">
                                 - {{ ingredient.source }}
                             </span>
@@ -44,10 +43,9 @@
     <h5>{{ storeSection.category }}</h5>
     <div ng-repeat="ingredient in shoppingList.ingredientList | orderBy: ['added', 'name'] | filter: storeSection.category">
         <span ng-class="{'faded-out' : ingredient.added}">
-          <input type="checkbox"
-                 ng-model="ingredient.added"
-                 id="{{ $id }}"/>
-          <label for="{{ $id }}">{{ ingredient.name }}</label>
+          <label>
+          <input type="checkbox" ng-model="ingredient.added"/>
+            {{ ingredient.name }}</label>
                                 <span class="ingredient-source">
                                     - {{ ingredient.source }}
                                 </span>

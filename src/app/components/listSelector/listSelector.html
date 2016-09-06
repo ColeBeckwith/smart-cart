@@ -4,14 +4,12 @@
             <li data-toggle="tabs"
                 role="tab"
                 ng-class="{active: listSelector.activeTab === 'ingredients'}">
-                <a ng-click="listSelector.activeTab = 'ingredients'">
-                    Ingredients
-                </a>
+                <a ng-click="listSelector.activeTab = 'ingredients'">Ingredients</a>
             </li>
             <li data-toggle="tabs"
                 role="tab"
                 ng-class="{active: listSelector.activeTab === 'meals'}">
-                <a ng-click="listSelector.activeTab = 'meals'">Meals</a>
+                <a ng-click="listSelector.activeTab = 'meals'">Meals ({{ listSelector.addedMeals.length }})</a>
             </li>
         </ul>
     </section>
